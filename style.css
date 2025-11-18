@@ -66,7 +66,7 @@ html {
 
 .navbar.scrolled {
   box-shadow: var(--shadow-lg);
-  background: hsla(10, 18%, 51%, 0.8);
+  background: rgb(71, 43, 37, 0.8);
 }
 
 .nav-container {
@@ -191,7 +191,7 @@ html {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: var(--primary-color);
+  background: white;
   transition: all 0.3s ease;
   border-radius: 2px;
 }
@@ -226,6 +226,7 @@ html {
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  opacity: 0.80;
 }
 
 .hero-overlay {
