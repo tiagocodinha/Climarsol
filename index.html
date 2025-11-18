@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climarsol - Carpintaria de Excelência</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="module" crossorigin src="/script.js"></script>
+  <link rel="stylesheet" crossorigin href="/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+            <a href="#home">Climarsol</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#projects" class="nav-link">Projetos</a></li>
+            <li><a href="#about" class="nav-link">A Empresa</a></li>
+            <li><a href="#contact" class="nav-link">Contactos</a></li>
+            <li class="lang-toggle-mobile"> <!-- Este entra só em mobile -->
+                <span class="lang-option active">PT</span>
+                <span class="lang-separator">|</span>
+                <span class="lang-option">EN</span>
+            </li>
+            </ul>
+            <!-- PT|EN desktop -->
+            <div class="lang-toggle-wrapper">
+            <span class="lang-option active">PT</span>
+            <span class="lang-separator">|</span>
+            <span class="lang-option">EN</span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="/content/prediocorreios.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Carpintaria Climarsol</h1>
+            <p class="hero-subtitle">Excelência em mobiliário por medida. Qualidade artesanal, design moderno.</p>
+            <button class="cta-button" id="ctaButton">Pedir Orçamento</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Os Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">C</div>
+                    <h3>Cozinhas por Medida</h3>
+                    <p>Cozinhas funcionais e elegantes, desenhadas à medida das suas necessidades e espaço disponível.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">R</div>
+                    <h3>Roupeiros</h3>
+                    <p>Roupeiros personalizados com sistemas de organização inteligentes para maximizar o seu espaço.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">M</div>
+                    <h3>Mobiliário Personalizado</h3>
+                    <p>Peças únicas de mobiliário desenhadas especificamente para o seu lar ou escritório.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">E</div>
+                    <h3>Estantes e Bibliotecas</h3>
+                    <p>Soluções de armazenamento elegantes que combinam funcionalidade com design sofisticado.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">W</div>
+                    <h3>Casas de Banho</h3>
+                    <p>Móveis de casa de banho resistentes à humidade, combinando estética e durabilidade.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">S</div>
+                    <h3>Soluções Comerciais</h3>
+                    <p>Mobiliário profissional para escritórios, lojas e espaços comerciais com acabamentos premium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos Recentes</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #8f5045 0%, #cb6e33 100%);">
+                        <span class="placeholder-text">Cozinha Moderna</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cozinha Contemporânea</h3>
+                        <p>Cozinha em madeira de carvalho com acabamentos lacados e ilha central funcional.</p>
+                    </div>
+                    <div class="project-overlay">
+                        <span>Ver detalhes do projeto</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #cb6e33 0%, #8f5045 100%);">
+                        <span class="placeholder-text">Roupeiro Embutido</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Roupeiro de Quarto</h3>
+                        <p>Roupeiro de parede a parede com portas de correr e interior totalmente personalizado.</p>
+                    </div>
+                    <div class="project-overlay">
+                        <span>Ver detalhes do projeto</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #8f5045 0%, #cb6e33 100%);">
+                        <span class="placeholder-text">Biblioteca</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Biblioteca Clássica</h3>
+                        <p>Estante de parede completa em madeira maciça com escada de acesso e iluminação integrada.</p>
+                    </div>
+                    <div class="project-overlay">
+                        <span>Ver detalhes do projeto</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #cb6e33 0%, #8f5045 100%);">
+                        <span class="placeholder-text">Escritório</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Home Office Premium</h3>
+                        <p>Secretária suspensa e estantes integradas para um escritório moderno e funcional.</p>
+                    </div>
+                    <div class="project-overlay">
+                        <span>Ver detalhes do projeto</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #8f5045 0%, #cb6e33 100%);">
+                        <span class="placeholder-text">Casa de Banho</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Móvel de Casa de Banho</h3>
+                        <p>Móvel suspenso em madeira tratada com lavatório duplo e espelho retroiluminado.</p>
+                    </div>
+                    <div class="project-overlay">
+                        <span>Ver detalhes do projeto</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #cb6e33 0%, #8f5045 100%);">
+                        <span class="placeholder-text">Loja</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Espaço Comercial</h3>
+                        <p>Balcão de atendimento e expositores personalizados para boutique de luxo.</p>
+                    </div>
+                    <div class="project-overlay">
+                        <span>Ver detalhes do projeto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">A Empresa</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="pattern-overlay"></div>
+                </div>
+                <div class="about-text">
+                    <p class="about-intro">
+                        A Climarsol é uma empresa familiar de carpintaria com mais de 20 anos de experiência
+                        na criação de mobiliário por medida. Combinamos técnicas tradicionais de carpintaria
+                        com tecnologia moderna para criar peças únicas que refletem a personalidade e necessidades
+                        de cada cliente.
+                    </p>
+                    <p>
+                        Cada projeto é tratado com o máximo cuidado e atenção ao detalhe, desde o desenho
+                        inicial até à instalação final. Utilizamos apenas madeiras de qualidade superior e
+                        acabamentos premium para garantir durabilidade e beleza duradoura.
+                    </p>
+                    <ul class="values-list">
+                        <li>Qualidade superior em materiais e acabamentos</li>
+                        <li>Cumprimento rigoroso de prazos acordados</li>
+                        <li>Soluções 100% personalizadas e únicas</li>
+                        <li>Produção local com mão de obra especializada</li>
+                        <li>Acompanhamento dedicado em todas as fases do projeto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactos</h2>
+            <div class="contact-content">
+                <div class="contact-form-wrapper">
+                    <h3>Solicite o Seu Orçamento</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome *</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensagem / Descrição do Projeto *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+
+                        <button type="submit" class="submit-button">Enviar Pedido</button>
+                        <div class="success-message" id="successMessage">
+                            Obrigado! Entraremos em contacto em breve.
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-info-wrapper">
+                    <div class="contact-info">
+                        <h3>Informações de Contacto</h3>
+                        <div class="info-item">
+                            <strong>Morada:</strong>
+                            <p>Rua da Carpintaria, 123<br>4000-000 Porto, Portugal</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>Telefone:</strong>
+                            <p>+351 220 123 456</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>Telemóvel:</strong>
+                            <p>+351 910 123 456</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>Email:</strong>
+                            <p>geral@climarsol.pt</p>
+                        </div>
+                        <div class="social-media">
+                            <strong>Redes Sociais:</strong>
+                            <div class="social-links">
+                                <a href="#" class="social-link facebook">Facebook</a>
+                                <a href="#" class="social-link instagram">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.349283119937!2d-8.629105484572562!3d41.15768297928645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2464e3b7b0c9d7%3A0x500ebbde49212c0!2sPorto%2C%20Portugal!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            width="100%"
+                            height="300"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Climarsol. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
