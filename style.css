@@ -320,9 +320,7 @@ html {
   transition: transform 0.3s ease;
 }
 
-.service-card:hover .service-icon {
-  transform: rotate(360deg);
-}
+
 
 .service-card h3 {
   font-size: 1.4rem;
