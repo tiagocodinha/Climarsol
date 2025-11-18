@@ -71,10 +71,10 @@ html {
 
 .nav-container {
   display: flex;
+  align-items: center;      /* <-- alinha verticalmente logo e navlinks */
   justify-content: center;
-  align-items: center;   /* centra verticalmente */
   position: relative;
-  height: 64px;          /* altura consistente da navbar */
+  height: 72px;             /* ligeiramente maior para respirar melhor */
 }
 
 .nav-center {
@@ -82,6 +82,21 @@ html {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+
+.logo-img {
+  height: 38px;          /* ajusta como quiseres */
+  width: auto;
+  display: block;
+}
+
+.logo img, .logo a, .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar.scrolled .logo-img {
+  filter: brightness(0) invert(1);   /* Se quiseres o logo branco quando a navbar fica opaca */
 }
 
 .logo a {
