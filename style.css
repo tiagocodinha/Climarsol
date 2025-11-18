@@ -277,7 +277,7 @@ html {
 }
 
 .cta-button:hover {
-  background: var(--primary-color);
+  background: rgb(71, 43, 37);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(143, 80, 69, 0.5);
 }
