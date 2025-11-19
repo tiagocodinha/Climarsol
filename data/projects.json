@@ -2,11 +2,11 @@
   "projects": [
     {
       "title": "teste",
-      "category": "roupeiros",
+      "category": "cozinhas",
       "image": "/content/projetos/ryanair.jpg",
-      "badge": "teste",
-      "description": "teste",
-      "cta": "teste"
+      "badge": "tes",
+      "description": "tes",
+      "cta": "tes"
     }
   ]
 }
