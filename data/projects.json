@@ -7,6 +7,14 @@
       "badge": "teste badge",
       "description": "teste descriçao",
       "cta": "teste cta"
+    },
+    {
+      "title": "TeSTE",
+      "category": "cozinhas",
+      "image": "https://montakit.pt/wp-content/uploads/2024/12/portas-interiores-carvalho-montakit-1.webp",
+      "badge": "teste badge",
+      "description": "teste descr",
+      "cta": "botaaao"
     }
   ]
 }
