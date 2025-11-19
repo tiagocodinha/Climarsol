@@ -1,12 +1,14 @@
 {
   "projects": [
     {
-      "title": "Escada madeira",
+      "title": "Escadas",
       "category": "escadas",
       "image": "https://itmmadeiras.pt/wp-content/uploads/2013/11/Escada-Suspensa-3-001.jpg",
       "gallery": [
-        "/content/projetos/empresa1.jpg",
-        "https://itmmadeiras.pt/wp-content/uploads/2013/11/Escada-Suspensa-3-001.jpg"
+        {
+          "type": "video",
+          "url": "https://climarsol.pt/media/MetaTest.mp4"
+        }
       ]
     }
   ]
