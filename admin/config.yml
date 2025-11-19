@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main   # ou "master" conforme o repositório
+
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+local_backend: true
+
+collections:
+  - label: "Projetos"
+    name: "projects"
+    file: "data/projects.json"
+    format: "json"
+    fields:
+      - label: "Projetos"
+        name: "projects"
+        widget: "list"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Categoria", name: "category", widget: "string" }
+          - { label: "Imagem", name: "image", widget: "image" }
+          - { label: "Badge", name: "badge", widget: "string", required: false }
+          - { label: "Descrição", name: "description", widget: "text" }
+          - { label: "CTA", name: "cta", widget: "string", required: false }

@@ -37,17 +37,20 @@ const projectsEmpty = document.getElementById("projectsEmpty");
 let allProjects = [];
 
 // 1) Carregar projetos do ficheiro JSON
-//    Coloca o ficheiro em: /data/projects.json (na raiz do site)
+//    /portfolio/index.html -> "../data/projects.json" = "/data/projects.json"
 fetch("../data/projects.json")
   .then((res) => res.json())
   .then((data) => {
-    allProjects = data;
+    // Aceita array simples OU objeto { projects: [...] }
+    allProjects = Array.isArray(data) ? data : (data.projects || []);
     renderProjects("todos");
   })
   .catch((err) => {
     console.error("Erro a carregar projects.json", err);
-    projectsEmpty.style.display = "block";
-    projectsEmpty.textContent = "Não foi possível carregar os projetos neste momento.";
+    if (projectsEmpty) {
+      projectsEmpty.style.display = "block";
+      projectsEmpty.textContent = "Não foi possível carregar os projetos neste momento.";
+    }
   });
 
 // 2) Listener dos filtros
@@ -73,9 +76,9 @@ function renderProjects(category) {
   }
 
   if (!filtered.length) {
-    projectsEmpty.style.display = "block";
+    if (projectsEmpty) projectsEmpty.style.display = "block";
     return;
-  } else {
+  } else if (projectsEmpty) {
     projectsEmpty.style.display = "none";
   }
 
@@ -89,7 +92,7 @@ function renderProjects(category) {
       </div>
       <div class="project-info">
         <h3>${project.title}</h3>
-        <p>${project.description}</p>
+        <p>${project.description || ""}</p>
       </div>
       <div class="project-overlay">
         <span>${project.cta || "Ver detalhes do projeto"}</span>

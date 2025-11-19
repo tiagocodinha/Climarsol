@@ -980,6 +980,31 @@ html {
   background-repeat: no-repeat;
 }
 
+.projects-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(203, 110, 51, 0.35);
+  transform: translateY(-2px);
+}
+
+
 /* ================================
    PÁGINA "A EMPRESA"
    ================================ */

@@ -2,7 +2,7 @@
 document.querySelectorAll('.nav-link').forEach(link => {
   const href = link.getAttribute('href');
 
-  // Se não começar por "#", não mexemos — deixa o browser navegar normalmente (ex: /projetos/)
+  // Se não começar por "#", não mexemos — deixa o browser navegar normalmente (ex: /portfolio/)
   if (!href || !href.startsWith('#')) return;
 
   link.addEventListener('click', function(e) {
@@ -144,3 +144,43 @@ document.addEventListener('click', function(event) {
     hamburger.classList.remove('active');
   }
 });
+
+// ===============================
+//  Projetos recentes (homepage)
+// ===============================
+
+const projectsGridHome = document.getElementById('projectsGridHome');
+
+if (projectsGridHome) {
+  fetch('/data/projects.json')
+    .then(res => res.json())
+    .then(data => {
+      // Aceita array simples OU objeto { projects: [...] }
+      const all = Array.isArray(data) ? data : (data.projects || []);
+
+      // Últimos 6 adicionados (assumindo que os últimos no ficheiro são os mais recentes)
+      const projects = all.slice().reverse().slice(0, 6);
+
+      projectsGridHome.innerHTML = '';
+
+      projects.forEach(project => {
+        const card = document.createElement('article');
+        card.className = 'project-card';
+
+        card.innerHTML = `
+          <div class="project-image" style="background-image:url('${project.image}')">
+            <span class="placeholder-text">${project.badge || ''}</span>
+          </div>
+          <div class="project-info">
+            <h3>${project.title}</h3>
+            <p>${project.description || ''}</p>
+          </div>
+        `;
+
+        projectsGridHome.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error('Erro a carregar projects.json para homepage', err);
+    });
+}
