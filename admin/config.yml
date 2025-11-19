@@ -45,11 +45,23 @@ collections:
                   - { label: "Escadas", value: "escadas" }
                   - { label: "Outros", value: "outros" }
 
-              # 👇 Sem media_folder aqui – usa o global
-              - label: "Imagem"
+              - label: "Imagem principal"
                 name: "image"
                 widget: "image"
+                media_folder: "content/projetos"
+                public_folder: "/content/projetos"
 
-              - { label: "Badge", name: "badge", widget: "string", required: false }
-              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Galeria adicional"
+                name: "gallery"
+                widget: "list"
+                required: false
+                field:
+                  label: "Imagem"
+                  name: "image"
+                  widget: "image"
+                  media_folder: "content/projetos"
+                  public_folder: "/content/projetos"
+
+              - { label: "Badge (opcional)", name: "badge", widget: "string", required: false }
+              - { label: "Descrição (opcional)", name: "description", widget: "text", required: false }
               - { label: "Texto do botão (CTA)", name: "cta", widget: "string", required: false }
