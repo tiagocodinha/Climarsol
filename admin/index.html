@@ -3,11 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <title>Admin | Climarsol</title>
+  <meta name="robots" content="noindex, nofollow" />
 </head>
-<body>
-  <!-- Widget de login Netlify Identity -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2/dist/netlify-cms.js"></script>
-</body>
+  <body>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
