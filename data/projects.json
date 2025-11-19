@@ -3,7 +3,7 @@
     {
       "title": "Teste",
       "category": "cozinhas",
-      "image": "/content/projetos/stage.png",
+      "image": "/content/projetos/banner.jpg",
       "badge": "teste badge",
       "description": "teste descriçao",
       "cta": "teste cta"
@@ -19,7 +19,7 @@
     {
       "title": "porta",
       "category": "outros",
-      "image": "/content/projetos/post-teste.jpg",
+      "image": "/content/projetos/banner.jpg",
       "description": "te",
       "cta": "+",
       "badge": "te"
