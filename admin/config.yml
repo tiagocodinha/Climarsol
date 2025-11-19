@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "content/projetos"
+media_folder: "/content/projetos"
 public_folder: "/content/projetos"
 
 locale: "pt"
@@ -47,7 +47,7 @@ collections:
               - label: "Imagem principal"
                 name: "image"
                 widget: "image"
-                media_folder: "content/projetos"
+                media_folder: "/content/projetos"
                 public_folder: "/content/projetos"
 
               # 👇 Conteúdos adicionais: imagem com upload OU vídeo por URL
@@ -69,7 +69,7 @@ collections:
                     name: "image"
                     widget: "image"
                     required: false
-                    media_folder: "content/projetos"
+                    media_folder: "/content/projetos"
                     public_folder: "/content/projetos"
 
                   # Vídeo: só URL (ex: https://climarsol.pt/media/MetaTest.mp4)
@@ -77,4 +77,3 @@ collections:
                     name: "video_url"
                     widget: "string"
                     required: false
-                    hint: "Ex: https://climarsol.pt/media/MetaTest.mp4"
