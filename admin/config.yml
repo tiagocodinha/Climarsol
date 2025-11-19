@@ -48,8 +48,8 @@ collections:
               - label: "Imagem"
                 name: "image"
                 widget: "image"
-                media_folder: "data/content/projetos"
-                public_folder: "/data/content/projetos"
+                media_folder: "/content/projetos"
+                public_folder: "/content/projetos"
 
               - { label: "Badge", name: "badge", widget: "string", required: false }
               - { label: "Descrição", name: "description", widget: "text" }
