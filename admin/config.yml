@@ -2,8 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "content/uploads"
-public_folder: "/content/uploads"
+# 👇 TODOS os uploads passam a ir para aqui
+media_folder: "content/projetos"   # caminho dentro do repo
+public_folder: "/content/projetos" # caminho usado no site
 
 locale: "pt"
 
@@ -15,10 +16,6 @@ collections:
     delete: false
     editor:
       preview: false
-
-    # 👇 AQUI: override só para esta coleção
-    media_folder: "content/projetos"
-    public_folder: "/content/projetos"
 
     files:
       - name: "projects_json"
@@ -48,7 +45,7 @@ collections:
                   - { label: "Escadas", value: "escadas" }
                   - { label: "Outros", value: "outros" }
 
-              # 👇 SEM media_folder aqui
+              # 👇 Sem media_folder aqui – usa o global
               - label: "Imagem"
                 name: "image"
                 widget: "image"
