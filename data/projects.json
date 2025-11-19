@@ -1,12 +1,16 @@
 {
   "projects": [
     {
-      "title": "Escada Madeira",
-      "category": "escadas",
-      "image": "https://itmmadeiras.pt/wp-content/uploads/2013/11/Escada-Suspensa-3-001.jpg",
-      "badge": "Nome do Local",
-      "description": "a",
-      "cta": "teste"
+      "title": "Escadas de Madeira",
+      "category": "cozinhas",
+      "image": "/content/projetos/empresa1.jpg",
+      "gallery": [
+        "/content/projetos/ryanair.jpg",
+        "https://itmmadeiras.pt/wp-content/uploads/2013/11/Escada-Suspensa-3-001.jpg"
+      ],
+      "badge": "Badge",
+      "description": "Descrição",
+      "cta": "CTA"
     }
   ]
 }
