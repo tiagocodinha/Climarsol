@@ -2,9 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
-# 👇 TODOS os uploads passam a ir para aqui
-media_folder: "content/projetos"   # caminho dentro do repo
-public_folder: "/content/projetos" # caminho usado no site
+# 👇 TODOS os uploads passam a ir para aqui (pasta na raiz do repo)
+media_folder: "content/projetos"
+public_folder: "/content/projetos"
 
 locale: "pt"
 
@@ -25,6 +25,7 @@ collections:
         description: "Lista de projetos mostrados no Portfólio e na Homepage"
 
         fields:
+          # Chave principal do ficheiro JSON: { "projects": [ ... ] }
           - label: "Projetos"
             name: "projects"
             widget: "list"
@@ -33,7 +34,9 @@ collections:
             summary: "{{fields.title}} ({{fields.category}})"
 
             fields:
-              - { label: "Título", name: "title", widget: "string" }
+              - label: "Título"
+                name: "title"
+                widget: "string"
 
               - label: "Categoria"
                 name: "category"
@@ -45,13 +48,13 @@ collections:
                   - { label: "Escadas", value: "escadas" }
                   - { label: "Outros", value: "outros" }
 
+              # Imagem principal do projeto (a que aparece no card)
               - label: "Imagem principal"
                 name: "image"
                 widget: "image"
-                media_folder: "/content/projetos"
-                public_folder: "/content/projetos"
 
-              - label: "Galeria adicional"
+              # Galeria para o pop-up (imagens adicionais)
+              - label: "Galeria (imagens adicionais)"
                 name: "gallery"
                 widget: "list"
                 required: false
@@ -59,9 +62,3 @@ collections:
                   label: "Imagem"
                   name: "image"
                   widget: "image"
-                  media_folder: "/content/projetos"
-                  public_folder: "/content/projetos"
-
-              - { label: "Badge (opcional)", name: "badge", widget: "string", required: false }
-              - { label: "Descrição (opcional)", name: "description", widget: "text", required: false }
-              - { label: "Texto do botão (CTA)", name: "cta", widget: "string", required: false }
