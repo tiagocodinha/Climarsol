@@ -48,7 +48,7 @@ collections:
               - label: "Imagem principal"
                 name: "image"
                 widget: "image"
-                media_folder: "content/projetos"
+                media_folder: "/content/projetos"
                 public_folder: "/content/projetos"
 
               - label: "Galeria adicional"
@@ -59,7 +59,7 @@ collections:
                   label: "Imagem"
                   name: "image"
                   widget: "image"
-                  media_folder: "content/projetos"
+                  media_folder: "/content/projetos"
                   public_folder: "/content/projetos"
 
               - { label: "Badge (opcional)", name: "badge", widget: "string", required: false }
