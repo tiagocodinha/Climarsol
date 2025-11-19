@@ -15,6 +15,20 @@
       "badge": "teste badge",
       "description": "teste descr",
       "cta": "botaaao"
+    },
+    {
+      "title": "porta",
+      "category": "outros",
+      "image": "/content/projetos/post-teste.jpg",
+      "description": "te",
+      "cta": "+",
+      "badge": "te"
+    },
+    {
+      "title": "tes",
+      "category": "escadas",
+      "description": "te",
+      "image": "https://montakit.pt/wp-content/uploads/2024/12/portas-interiores-carvalho-montakit-1.webp"
     }
   ]
 }
