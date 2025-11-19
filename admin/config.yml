@@ -8,7 +8,6 @@ public_folder: "/content/uploads"
 locale: "pt"
 
 collections:
-  # Coleção única para gerir o ficheiro data/projects.json
   - name: "projects"
     label: "Projetos"
     label_singular: "Projeto"
@@ -16,6 +15,10 @@ collections:
     delete: false
     editor:
       preview: false
+
+    # 👇 AQUI: override só para esta coleção
+    media_folder: "content/projetos"
+    public_folder: "/content/projetos"
 
     files:
       - name: "projects_json"
@@ -45,11 +48,10 @@ collections:
                   - { label: "Escadas", value: "escadas" }
                   - { label: "Outros", value: "outros" }
 
+              # 👇 SEM media_folder aqui
               - label: "Imagem"
                 name: "image"
                 widget: "image"
-                media_folder: "/content/projetos"
-                public_folder: "/content/projetos"
 
               - { label: "Badge", name: "badge", widget: "string", required: false }
               - { label: "Descrição", name: "description", widget: "text" }
