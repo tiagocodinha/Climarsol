@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Cozinha em L com ilha central",
+    "category": "cozinhas",
+    "image": "/content/projetos/cozinha-1.jpg",
+    "badge": "Cozinha Moderna",
+    "description": "Cozinha em L com combinação de madeira e lacado branco, ilha central e iluminação embutida.",
+    "cta": "Ver detalhes da cozinha"
+  },
+  {
+    "title": "Roupeiro embutido de parede a parede",
+    "category": "roupeiros",
+    "image": "/content/projetos/roupeiro-1.jpg",
+    "badge": "Roupeiro",
+    "description": "Roupeiro com portas de correr e interior personalizado para optimizar arrumação.",
+    "cta": "Ver roupeiro"
+  },
+  {
+    "title": "Porta interior em madeira maciça",
+    "category": "portas",
+    "image": "/content/projetos/porta-1.jpg",
+    "badge": "Porta",
+    "description": "Porta de interior em madeira maciça, acabamento mate e ferragens ocultas.",
+    "cta": "Ver porta"
+  },
+  {
+    "title": "Escada em madeira e ferro preto",
+    "category": "escadas",
+    "image": "/content/projetos/escada-1.jpg",
+    "badge": "Escada",
+    "description": "Estrutura metálica com degraus em madeira natural, guarda-corpos minimalistas.",
+    "cta": "Ver escada"
+  }
+]

@@ -896,3 +896,98 @@ html {
     padding: 4rem 0;
   }
 }
+
+
+/* === Página Projetos === */
+
+.projects-hero {
+  position: relative;
+  padding: 7rem 0 4rem;
+  background: linear-gradient(135deg, rgba(143, 80, 69, 0.9), rgba(203, 110, 51, 0.85)),
+              url("../content/projetos/hero-projetos.jpg") center/cover no-repeat;
+  color: #fff;
+  margin-top: 72px; /* compensar navbar fixa */
+}
+
+.projects-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.projects-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 700px;
+}
+
+.projects-hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.projects-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.projects-hero-subtitle {
+  font-size: 1.1rem;
+  max-width: 520px;
+}
+
+/* Barra de filtros */
+
+.projects-list-section {
+  padding: 4rem 0 5rem;
+  background: #f9f9f9;
+}
+
+.projects-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  border: 1px solid rgba(143, 80, 69, 0.3);
+  background: #fff;
+  color: var(--primary-color);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+
+.projects-empty-state {
+  text-align: center;
+  color: var(--text-light);
+  margin-top: 1.5rem;
+}
+
+/* Ajuste para usar imagem de fundo nos cards desta página */
+.projects-grid .project-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

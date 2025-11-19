@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Climarsol" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Climarsol - Projetos</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="/">
+          <img src="../content/Logoclimarsol.svg" alt="Climarsol" class="logo-img" />
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/projetos/" class="nav-link nav-link-active">Projetos</a></li>
+        <li><a href="/#about" class="nav-link">A Empresa</a></li>
+        <li><a href="/#contact" class="nav-link">Contactos</a></li>
+        <li class="lang-toggle-mobile">
+          <span class="lang-option active">PT</span>
+          <span class="lang-separator">|</span>
+          <span class="lang-option">EN</span>
+        </li>
+      </ul>
+
+      <div class="lang-toggle-wrapper">
+        <span class="lang-option active">PT</span>
+        <span class="lang-separator">|</span>
+        <span class="lang-option">EN</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero específico da página de projetos -->
+  <section class="projects-hero">
+    <div class="projects-hero-overlay"></div>
+    <div class="projects-hero-content container">
+      <p class="projects-hero-eyebrow">Portfólio</p>
+      <h1 class="projects-hero-title">Projetos Climarsol</h1>
+      <p class="projects-hero-subtitle">
+        Cozinhas, roupeiros, portas e escadas pensados ao detalhe, feitos à medida de cada espaço.
+      </p>
+    </div>
+  </section>
+
+  <!-- Secção de filtros + grelha -->
+  <section class="projects-list-section">
+    <div class="container">
+      <div class="projects-filter-bar">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="cozinhas">Cozinhas</button>
+        <button class="filter-btn" data-filter="portas">Portas</button>
+        <button class="filter-btn" data-filter="roupeiros">Roupeiros</button>
+        <button class="filter-btn" data-filter="escadas">Escadas</button>
+      </div>
+
+      <div id="projectsGrid" class="projects-grid">
+        <!-- Os projetos vêm do ficheiro JSON via JS -->
+      </div>
+
+      <p id="projectsEmpty" class="projects-empty-state" style="display:none;">
+        Ainda não existem projetos nesta categoria. Volte a selecionar “Todos” ou outra categoria.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Climarsol. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- JS específico da página de projetos -->
+  <script src="/projects.js"></script>
+</body>
+</html>
