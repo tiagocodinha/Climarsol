@@ -50,7 +50,7 @@ collections:
                 media_folder: "content/projetos"
                 public_folder: "/content/projetos"
 
-              # 👇 A PARTIR DAQUI: só URLs, NADA DE UPLOAD
+              # 👇 Conteúdos adicionais: imagem com upload OU vídeo por URL
               - label: "Conteúdos adicionais (imagens ou vídeos) (opcional)"
                 name: "gallery"
                 widget: "list"
@@ -64,7 +64,17 @@ collections:
                       - { label: "Imagem", value: "image" }
                       - { label: "Vídeo", value: "video" }
 
-                  - label: "URL do ficheiro (imagem ou vídeo)"
-                    name: "url"
+                  # Imagem extra: fazes upload normal
+                  - label: "Imagem (se escolher Imagem)"
+                    name: "image"
+                    widget: "image"
+                    required: false
+                    media_folder: "content/projetos"
+                    public_folder: "/content/projetos"
+
+                  # Vídeo: só URL (ex: https://climarsol.pt/media/MetaTest.mp4)
+                  - label: "URL do vídeo (se escolher Vídeo)"
+                    name: "video_url"
                     widget: "string"
-                    hint: "Ex: /content/projetos/foto2.jpg ou https://climarsol.pt/media/MetaTest.mp4"
+                    required: false
+                    hint: "Ex: https://climarsol.pt/media/MetaTest.mp4"

@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectsGrid = document.getElementById("projectsGrid");
   const projectsEmpty = document.getElementById("projectsEmpty");
 
+  // homepage (6 mais recentes)
   const recentGrid =
     document.getElementById("recentProjectsGrid") ||
     document.getElementById("projectsGridHome");
@@ -48,33 +48,37 @@ document.addEventListener("DOMContentLoaded", () => {
   function getGallery(project) {
     const list = [];
 
-    // 1 — sempre imagem principal
+    // 1 — imagem principal
     if (project.image) {
       list.push({ type: "image", src: project.image });
     }
 
     // 2 — conteúdos adicionais
-    const extra = Array.isArray(project.gallery) ? project.gallery : [];
+    const extraRaw = Array.isArray(project.gallery) ? project.gallery : [];
 
-    extra.forEach((item) => {
+    extraRaw.forEach((item) => {
       if (!item) return;
 
-      // compatibilidade com versões antigas (strings)
+      // compatibilidade com formato antigo: ["img1.jpg", "img2.jpg"]
       if (typeof item === "string") {
         list.push({ type: "image", src: item });
         return;
       }
 
-      if (item.image) {
-        list.push({ type: "image", src: item.image });
-        return;
-      }
+      // tipo definido no CMS (image / video)
+      const type = item.type || "image";
 
-      if (item.file) {
-        list.push({
-          type: item.type === "video" ? "video" : "image",
-          src: item.file
-        });
+      if (type === "video") {
+        const src = item.video_url || item.url || item.file;
+        if (src) {
+          list.push({ type: "video", src });
+        }
+      } else {
+        // imagem extra: pode vir de item.image (upload) ou item.url (se algum dia usares URL)
+        const src = item.image || item.url || item.file;
+        if (src) {
+          list.push({ type: "image", src });
+        }
       }
     });
 
@@ -89,16 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projectsGrid.innerHTML = "";
 
-    let filtered = category === "todos"
-      ? allProjects
-      : allProjects.filter((p) => p.category === category);
+    let filtered =
+      !category || category === "todos"
+        ? allProjects
+        : allProjects.filter((p) => p.category === category);
 
     if (!filtered.length) {
-      projectsEmpty.style.display = "block";
+      if (projectsEmpty) projectsEmpty.style.display = "block";
       return;
     }
 
-    projectsEmpty.style.display = "none";
+    if (projectsEmpty) projectsEmpty.style.display = "none";
 
     filtered.forEach((project) => {
       const card = document.createElement("article");
@@ -146,9 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ============================ */
   const modal = document.getElementById("projectModal");
   const modalMedia = document.getElementById("projectModalMedia");
-  const modalClose = modal?.querySelector(".project-modal-close");
-  const modalPrev = modal?.querySelector(".project-modal-arrow.prev");
-  const modalNext = modal?.querySelector(".project-modal-arrow.next");
+  const modalClose = modal ? modal.querySelector(".project-modal-close") : null;
+  const modalPrev = modal ? modal.querySelector(".project-modal-arrow.prev") : null;
+  const modalNext = modal ? modal.querySelector(".project-modal-arrow.next") : null;
 
   let currentProjectIndex = null;
   let currentImageIndex = 0;
@@ -159,6 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function openProjectModal(index) {
+    if (!modal) return; // se a página não tiver modal (falha de markup), aborta
+
     const project = allProjects[index];
     if (!project) return;
 
@@ -170,8 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const gallery = getGallery(project);
     const multiple = gallery.length > 1;
 
-    modalPrev.classList.toggle("hidden", !multiple);
-    modalNext.classList.toggle("hidden", !multiple);
+    if (modalPrev && modalNext) {
+      modalPrev.classList.toggle("hidden", !multiple);
+      modalNext.classList.toggle("hidden", !multiple);
+    }
 
     modal.classList.add("show");
   }
@@ -180,8 +189,13 @@ document.addEventListener("DOMContentLoaded", () => {
      7 — Atualizar conteúdo do pop-up
   ============================ */
   function updateModalContent() {
+    if (!modalMedia) return;
+
     const project = allProjects[currentProjectIndex];
+    if (!project) return;
+
     const gallery = getGallery(project);
+    if (!gallery.length) return;
 
     const item = gallery[currentImageIndex];
 
@@ -202,26 +216,42 @@ document.addEventListener("DOMContentLoaded", () => {
      8 — Navegação (loop)
   ============================ */
   function showPrev() {
-    const gallery = getGallery(allProjects[currentProjectIndex]);
+    const project = allProjects[currentProjectIndex];
+    if (!project) return;
+
+    const gallery = getGallery(project);
+    if (!gallery.length) return;
+
     currentImageIndex = (currentImageIndex - 1 + gallery.length) % gallery.length;
     updateModalContent();
   }
 
   function showNext() {
-    const gallery = getGallery(allProjects[currentProjectIndex]);
+    const project = allProjects[currentProjectIndex];
+    if (!project) return;
+
+    const gallery = getGallery(project);
+    if (!gallery.length) return;
+
     currentImageIndex = (currentImageIndex + 1) % gallery.length;
     updateModalContent();
   }
 
-  modalPrev?.addEventListener("click", showPrev);
-  modalNext?.addEventListener("click", showNext);
-  modalClose?.addEventListener("click", () => modal.classList.remove("show"));
+  if (modalPrev) modalPrev.addEventListener("click", showPrev);
+  if (modalNext) modalNext.addEventListener("click", showNext);
+  if (modalClose) modalClose.addEventListener("click", () => modal.classList.remove("show"));
 
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.remove("show");
-  });
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal || e.target.classList.contains("project-modal-backdrop")) {
+        modal.classList.remove("show");
+      }
+    });
+  }
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") modal.classList.remove("show");
+    if (e.key === "Escape" && modal) {
+      modal.classList.remove("show");
+    }
   });
 });
