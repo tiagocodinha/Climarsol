@@ -1,25 +1,56 @@
 backend:
   name: git-gateway
-  branch: main   # ou "master" conforme o repositório
+  branch: main
 
 media_folder: "content/uploads"
 public_folder: "/content/uploads"
 
-local_backend: true
+locale: "pt"
 
 collections:
-  - label: "Projetos"
-    name: "projects"
-    file: "data/projects.json"
-    format: "json"
-    fields:
-      - label: "Projetos"
-        name: "projects"
-        widget: "list"
+  # Coleção única para gerir o ficheiro data/projects.json
+  - name: "projects"
+    label: "Projetos"
+    label_singular: "Projeto"
+    description: "Projetos do portfólio Climarsol"
+    delete: false
+    editor:
+      preview: false
+
+    files:
+      - name: "projects_json"
+        label: "Lista de projetos"
+        file: "data/projects.json"
+        format: "json"
+        description: "Lista de projetos mostrados no Portfólio e na Homepage"
+
         fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Categoria", name: "category", widget: "string" }
-          - { label: "Imagem", name: "image", widget: "image" }
-          - { label: "Badge", name: "badge", widget: "string", required: false }
-          - { label: "Descrição", name: "description", widget: "text" }
-          - { label: "CTA", name: "cta", widget: "string", required: false }
+          - label: "Projetos"
+            name: "projects"
+            widget: "list"
+            collapsed: true
+            allow_add: true
+            summary: "{{fields.title}} ({{fields.category}})"
+
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+
+              - label: "Categoria"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Cozinhas", value: "cozinhas" }
+                  - { label: "Roupeiros", value: "roupeiros" }
+                  - { label: "Portas", value: "portas" }
+                  - { label: "Escadas", value: "escadas" }
+                  - { label: "Outros", value: "outros" }
+
+              - label: "Imagem"
+                name: "image"
+                widget: "image"
+                media_folder: "content/projetos"
+                public_folder: "/content/projetos"
+
+              - { label: "Badge", name: "badge", widget: "string", required: false }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Texto do botão (CTA)", name: "cta", widget: "string", required: false }

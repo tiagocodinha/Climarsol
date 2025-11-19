@@ -41,10 +41,10 @@ let allProjects = [];
 fetch("../data/projects.json")
   .then((res) => res.json())
   .then((data) => {
-    // Aceita array simples OU objeto { projects: [...] }
-    allProjects = Array.isArray(data) ? data : (data.projects || []);
+    allProjects = data.projects || [];
     renderProjects("todos");
   })
+
   .catch((err) => {
     console.error("Erro a carregar projects.json", err);
     if (projectsEmpty) {
