@@ -34,17 +34,27 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 const projectsGrid = document.getElementById("projectsGrid");
 const projectsEmpty = document.getElementById("projectsEmpty");
 
+// homepage (6 mais recentes)
+const recentGrid = document.getElementById("recentProjectsGrid");
+
 let allProjects = [];
 
-// 1) Carregar projetos do ficheiro JSON
-//    /portfolio/index.html -> "../data/projects.json" = "/data/projects.json"
-fetch("../data/projects.json")
+// 1) Carregar projetos do ficheiro JSON (suporta array ou { projects: [] })
+fetch("/data/projects.json")
   .then((res) => res.json())
   .then((data) => {
-    allProjects = data.projects || [];
-    renderProjects("todos");
-  })
+    allProjects = Array.isArray(data) ? data : (data.projects || []);
 
+    // página Portfólio
+    if (projectsGrid) {
+      renderProjects("todos");
+    }
+
+    // homepage: últimos 6
+    if (recentGrid) {
+      renderRecentProjects();
+    }
+  })
   .catch((err) => {
     console.error("Erro a carregar projects.json", err);
     if (projectsEmpty) {
@@ -53,7 +63,7 @@ fetch("../data/projects.json")
     }
   });
 
-// 2) Listener dos filtros
+// 2) Listener dos filtros (apenas se existirem na página)
 filterButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     filterButtons.forEach((b) => b.classList.remove("active"));
@@ -64,21 +74,21 @@ filterButtons.forEach((btn) => {
   });
 });
 
-// 3) Função que desenha os cards
+// 3) Função que desenha os cards do Portfólio
 function renderProjects(category) {
   if (!projectsGrid) return;
 
   projectsGrid.innerHTML = "";
 
   let filtered = allProjects;
-  if (category !== "todos") {
+  if (category && category !== "todos") {
     filtered = allProjects.filter((proj) => proj.category === category);
   }
 
   if (!filtered.length) {
-    if (projectsEmpty) projectsEmpty.style.display = "block";
+    projectsEmpty.style.display = "block";
     return;
-  } else if (projectsEmpty) {
+  } else {
     projectsEmpty.style.display = "none";
   }
 
@@ -92,7 +102,7 @@ function renderProjects(category) {
       </div>
       <div class="project-info">
         <h3>${project.title}</h3>
-        <p>${project.description || ""}</p>
+        <p>${project.description}</p>
       </div>
       <div class="project-overlay">
         <span>${project.cta || "Ver detalhes do projeto"}</span>
@@ -100,5 +110,31 @@ function renderProjects(category) {
     `;
 
     projectsGrid.appendChild(card);
+  });
+}
+
+// 4) Homepage – últimos 6 projetos
+function renderRecentProjects() {
+  if (!recentGrid || !allProjects.length) return;
+
+  recentGrid.innerHTML = "";
+
+  // últimos 6 (do mais recente para o mais antigo)
+  const latest = [...allProjects].slice(-6).reverse();
+
+  latest.forEach((project) => {
+    const card = document.createElement("article");
+    card.className = "project-card";
+
+    card.innerHTML = `
+      <div class="project-image" style="background-image: url('${project.image}')">
+        <span class="placeholder-text">${project.badge || ""}</span>
+      </div>
+      <div class="project-info">
+        <h3>${project.title}</h3>
+      </div>
+    `;
+
+    recentGrid.appendChild(card);
   });
 }
