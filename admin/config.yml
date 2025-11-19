@@ -21,6 +21,7 @@ collections:
         label: "Lista de projetos"
         file: "data/projects.json"
         format: "json"
+        description: "Lista de projetos mostrados no Portfólio e na Homepage"
 
         fields:
           - label: "Projetos"
@@ -46,11 +47,15 @@ collections:
               - label: "Imagem principal"
                 name: "image"
                 widget: "image"
+                media_folder: "content/projetos"
+                public_folder: "/content/projetos"
 
-              - label: "Conteúdos adicionais (imagens ou vídeos)"
+              # 👇 A PARTIR DAQUI: só URLs, NADA DE UPLOAD
+              - label: "Conteúdos adicionais (imagens ou vídeos) (opcional)"
                 name: "gallery"
                 widget: "list"
                 required: false
+                collapsed: true
                 fields:
                   - label: "Tipo"
                     name: "type"
@@ -58,10 +63,8 @@ collections:
                     options:
                       - { label: "Imagem", value: "image" }
                       - { label: "Vídeo", value: "video" }
-                    default: "image"
 
-                  - label: "Ficheiro"
-                    name: "file"
-                    widget: "file"
-                    media_folder: "/content/projetos"
-                    public_folder: "/content/projetos"
+                  - label: "URL do ficheiro (imagem ou vídeo)"
+                    name: "url"
+                    widget: "string"
+                    hint: "Ex: /content/projetos/foto2.jpg ou https://climarsol.pt/media/MetaTest.mp4"
