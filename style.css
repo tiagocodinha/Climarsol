@@ -898,15 +898,20 @@ html {
 }
 
 
+
+
+
+
+
 /* === Página Projetos === */
 
 .projects-hero {
   position: relative;
-  padding: 7rem 0 4rem;
-  background: linear-gradient(135deg, rgba(143, 80, 69, 0.9), rgba(203, 110, 51, 0.85)),
-              url("../content/projetos/hero-projetos.jpg") center/cover no-repeat;
+  padding: 7rem 0 4rem; /* hero começa logo atrás da navbar, como na home */
+  background: linear-gradient(135deg, rgba(143, 80, 69, 0.7), rgba(203, 110, 51, 0.7)),
+              url("/content/heroportfolio.jpg") center/cover no-repeat;
   color: #fff;
-  margin-top: 72px; /* compensar navbar fixa */
+  /* REMOVE isto: margin-top: 72px; */
 }
 
 .projects-hero-overlay {
@@ -990,4 +995,234 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   PÁGINA "A EMPRESA"
+   ================================ */
+
+/* HERO DA EMPRESA */
+.empresa-hero {
+  position: relative;
+  padding: 7rem 0 4rem; /* hero começa logo atrás da navbar, como na home */
+  background: linear-gradient(135deg, rgba(143, 80, 69, 0.7), rgba(203, 110, 51, 0.7)),
+              url("/content/heroempresa.jpg") center/cover no-repeat;
+              
+  color: #fff;
+  /* REMOVE isto: margin-top: 72px; */
+}
+
+.empresa-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.empresa-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.empresa-hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.empresa-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.empresa-hero-subtitle {
+  font-size: 1.05rem;
+  max-width: 540px;
+}
+
+/* SECÇÃO HISTÓRIA / QUEM SOMOS */
+.empresa-historia {
+  padding: 4rem 0 5rem;
+  background: var(--bg-color);
+}
+
+.empresa-historia-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.empresa-historia-text h2 {
+  font-size: 2.1rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.empresa-historia-text p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.empresa-historia-img {
+  min-height: 320px;
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(143, 80, 69, 0.92), rgba(203, 110, 51, 0.9)),
+    url("/content/empresa/equipa.jpg") center/cover no-repeat;
+  box-shadow: var(--shadow-lg);
+}
+
+/* SECÇÕES "COMO TRABALHAMOS" + "CLIMARSOL EM NÚMEROS" */
+.empresa-valores {
+  padding: 4rem 0;
+  background: #f9f9f9;
+}
+
+.empresa-valores:nth-of-type(2) {
+  background: #ffffff; /* ligeira alternância para a secção seguinte */
+}
+
+.empresa-valores h2 {
+  text-align: center;
+  font-size: 2.1rem;
+  color: var(--primary-color);
+  margin-bottom: 2.5rem;
+}
+
+.empresa-valores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.valor-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 1.8rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(143, 80, 69, 0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.valor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-color);
+}
+
+.valor-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+}
+
+.valor-card p {
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* SECÇÃO MANIFESTO / DIFERENCIAÇÃO */
+.empresa-diferenciacao {
+  padding: 4rem 0 5rem;
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+.empresa-diferenciacao h2 {
+  font-size: 2.1rem;
+  margin-bottom: 1.8rem;
+  text-align: left;
+}
+
+.empresa-diferenciacao .empresa-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.4rem;
+}
+
+.empresa-diferenciacao .empresa-lista li {
+  position: relative;
+  padding-left: 1.8rem;
+  line-height: 1.8;
+}
+
+.empresa-diferenciacao .empresa-lista li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
+
+/* ================================
+   RESPONSIVO - PÁGINA EMPRESA
+   ================================ */
+
+@media (max-width: 968px) {
+  .empresa-hero {
+    padding: 6rem 0 3.2rem;
+    margin-top: 70px;
+  }
+
+  .empresa-hero-title {
+    font-size: 2.3rem;
+  }
+
+  .empresa-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .empresa-historia-content {
+    grid-template-columns: 1fr;
+  }
+
+  .empresa-historia-img {
+    order: -1;
+    min-height: 260px;
+  }
+
+  .empresa-diferenciacao h2 {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .empresa-hero-title {
+    font-size: 2rem;
+  }
+
+  .empresa-hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .empresa-historia {
+    padding: 3rem 0 4rem;
+  }
+
+  .empresa-valores {
+    padding: 3rem 0;
+  }
+
+  .empresa-diferenciacao {
+    padding: 3rem 0 4rem;
+  }
 }

@@ -1,10 +1,14 @@
-// Smooth scrolling for navigation links
+// Smooth scrolling APENAS para links de âncora (#about, #contact, etc)
 document.querySelectorAll('.nav-link').forEach(link => {
+  const href = link.getAttribute('href');
+
+  // Se não começar por "#", não mexemos — deixa o browser navegar normalmente (ex: /projetos/)
+  if (!href || !href.startsWith('#')) return;
+
   link.addEventListener('click', function(e) {
     e.preventDefault();
 
-    const targetId = this.getAttribute('href');
-    const targetSection = document.querySelector(targetId);
+    const targetSection = document.querySelector(href);
 
     if (targetSection) {
       const navHeight = document.querySelector('.navbar').offsetHeight;
