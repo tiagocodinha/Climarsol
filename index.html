@@ -260,8 +260,23 @@
             <p>&copy; 2025 Climarsol. Todos os direitos reservados.</p>
         </div>
     </footer>
-    <script src="script.js"></script>
-    <script src="projects.js"></script>
+    
+     <!-- Modal de Projeto (usado na home e no portfólio) -->
+    <div id="projectModal" class="project-modal">
+    <div class="project-modal-backdrop"></div>
+
+    <div class="project-modal-content">
+        <button class="project-modal-close">&times;</button>
+
+        <div id="projectModalMedia"></div>
+
+        <button class="project-modal-arrow prev">&#10094;</button>
+        <button class="project-modal-arrow next">&#10095;</button>
+    </div>
+    </div>
+
+    <script src="script.js" defer></script>
+    <script src="projects.js" defer></script>
 
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>

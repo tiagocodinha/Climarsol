@@ -1,41 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Filtros + carregamento de projetos a partir de JSON ---
 
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectsGrid = document.getElementById("projectsGrid");
   const projectsEmpty = document.getElementById("projectsEmpty");
 
-  // homepage (6 mais recentes)
-  const recentGrid = document.getElementById("recentProjectsGrid");
+  const recentGrid =
+    document.getElementById("recentProjectsGrid") ||
+    document.getElementById("projectsGridHome");
 
   let allProjects = [];
 
-  // 1) Carregar projetos do ficheiro JSON (suporta array ou { projects: [] })
+  /* ============================
+     1 — Carregar JSON
+  ============================ */
   fetch("/data/projects.json")
     .then((res) => res.json())
     .then((data) => {
       allProjects = Array.isArray(data) ? data : (data.projects || []);
 
-      // página Portfólio
-      if (projectsGrid) {
-        renderProjects("todos");
-      }
-
-      // homepage: últimos 6
-      if (recentGrid) {
-        renderRecentProjects();
-      }
+      if (projectsGrid) renderProjects("todos");
+      if (recentGrid) renderRecentProjects();
     })
     .catch((err) => {
-      console.error("Erro a carregar projects.json", err);
+      console.error("Erro:", err);
       if (projectsEmpty) {
         projectsEmpty.style.display = "block";
-        projectsEmpty.textContent =
-          "Não foi possível carregar os projetos neste momento.";
+        projectsEmpty.textContent = "Erro ao carregar projetos.";
       }
     });
 
-  // 2) Listener dos filtros (apenas se existirem na página)
+  /* ============================
+     2 — Filtros
+  ============================ */
   filterButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       filterButtons.forEach((b) => b.classList.remove("active"));
@@ -46,40 +42,63 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --------- Funções de apoio ---------
-
-  // Garante que a galeria funciona se vier:
-  //  - como array de strings: ["img1.jpg","img2.jpg"]
-  //  - ou array de objetos: [{image:"img1.jpg"}, {image:"img2.jpg"}]
+  /* ============================
+     3 — Preparar galeria (IMAGEM + VÍDEO)
+  ============================ */
   function getGallery(project) {
-    const extraRaw = Array.isArray(project.gallery) ? project.gallery : [];
+    const list = [];
 
-    const extra = extraRaw
-      .map((item) =>
-        typeof item === "string" ? item : item && item.image ? item.image : null
-      )
-      .filter(Boolean);
+    // 1 — sempre imagem principal
+    if (project.image) {
+      list.push({ type: "image", src: project.image });
+    }
 
-    return [project.image, ...extra].filter(Boolean);
+    // 2 — conteúdos adicionais
+    const extra = Array.isArray(project.gallery) ? project.gallery : [];
+
+    extra.forEach((item) => {
+      if (!item) return;
+
+      // compatibilidade com versões antigas (strings)
+      if (typeof item === "string") {
+        list.push({ type: "image", src: item });
+        return;
+      }
+
+      if (item.image) {
+        list.push({ type: "image", src: item.image });
+        return;
+      }
+
+      if (item.file) {
+        list.push({
+          type: item.type === "video" ? "video" : "image",
+          src: item.file
+        });
+      }
+    });
+
+    return list;
   }
 
-  // 3) Função que desenha os cards do Portfólio
+  /* ============================
+     4 — Renderizar Portfólio
+  ============================ */
   function renderProjects(category) {
     if (!projectsGrid) return;
 
     projectsGrid.innerHTML = "";
 
-    let filtered = allProjects;
-    if (category && category !== "todos") {
-      filtered = allProjects.filter((proj) => proj.category === category);
-    }
+    let filtered = category === "todos"
+      ? allProjects
+      : allProjects.filter((p) => p.category === category);
 
     if (!filtered.length) {
-      if (projectsEmpty) projectsEmpty.style.display = "block";
+      projectsEmpty.style.display = "block";
       return;
-    } else {
-      if (projectsEmpty) projectsEmpty.style.display = "none";
     }
+
+    projectsEmpty.style.display = "none";
 
     filtered.forEach((project) => {
       const card = document.createElement("article");
@@ -87,15 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.projectIndex = allProjects.indexOf(project);
 
       card.innerHTML = `
-        <div class="project-image" style="background-image: url('${project.image}')">
-          <span class="placeholder-text"></span>
-        </div>
-        <div class="project-info">
-          <h3>${project.title}</h3>
-        </div>
-        <div class="project-overlay">
-          <div class="project-overlay-icon">+</div>
-        </div>
+        <div class="project-image" style="background-image: url('${project.image}')"></div>
+        <div class="project-info"><h3>${project.title}</h3></div>
+        <div class="project-overlay"><div class="project-overlay-icon">+</div></div>
       `;
 
       card.addEventListener("click", onProjectCardClick);
@@ -103,12 +116,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4) Homepage – últimos 6 projetos (também sem descrição)
+  /* ============================
+     5 — Renderizar Home (6 recentes)
+  ============================ */
   function renderRecentProjects() {
-    if (!recentGrid || !allProjects.length) return;
+    if (!recentGrid) return;
 
     recentGrid.innerHTML = "";
-
     const latest = [...allProjects].slice(-6).reverse();
 
     latest.forEach((project) => {
@@ -117,15 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.projectIndex = allProjects.indexOf(project);
 
       card.innerHTML = `
-        <div class="project-image" style="background-image: url('${project.image}')">
-          <span class="placeholder-text"></span>
-        </div>
-        <div class="project-info">
-          <h3>${project.title}</h3>
-        </div>
-        <div class="project-overlay">
-          <div class="project-overlay-icon">+</div>
-        </div>
+        <div class="project-image" style="background-image: url('${project.image}')"></div>
+        <div class="project-info"><h3>${project.title}</h3></div>
+        <div class="project-overlay"><div class="project-overlay-icon">+</div></div>
       `;
 
       card.addEventListener("click", onProjectCardClick);
@@ -133,99 +141,87 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===== Modal de galeria ===== */
-
+  /* ============================
+     6 — Modal
+  ============================ */
   const modal = document.getElementById("projectModal");
-  const modalImg = document.getElementById("projectModalImage");
-  const modalClose = modal ? modal.querySelector(".project-modal-close") : null;
-  const modalPrev = modal ? modal.querySelector(".project-modal-arrow.prev") : null;
-  const modalNext = modal ? modal.querySelector(".project-modal-arrow.next") : null;
+  const modalMedia = document.getElementById("projectModalMedia");
+  const modalClose = modal?.querySelector(".project-modal-close");
+  const modalPrev = modal?.querySelector(".project-modal-arrow.prev");
+  const modalNext = modal?.querySelector(".project-modal-arrow.next");
 
   let currentProjectIndex = null;
   let currentImageIndex = 0;
 
   function onProjectCardClick(e) {
-    const card = e.currentTarget;
-    const idx = parseInt(card.dataset.projectIndex, 10);
+    const idx = parseInt(e.currentTarget.dataset.projectIndex, 10);
     openProjectModal(idx);
   }
 
-  function openProjectModal(projectIndex) {
-    if (!modal) return;
-
-    const project = allProjects[projectIndex];
+  function openProjectModal(index) {
+    const project = allProjects[index];
     if (!project) return;
 
-    const gallery = getGallery(project);
-    if (!gallery.length) return;
-
-    currentProjectIndex = projectIndex;
+    currentProjectIndex = index;
     currentImageIndex = 0;
 
-    updateModalImage();
+    updateModalContent();
 
-    if (gallery.length <= 1) {
-      modalPrev && modalPrev.classList.add("hidden");
-      modalNext && modalNext.classList.add("hidden");
-    } else {
-      modalPrev && modalPrev.classList.remove("hidden");
-      modalNext && modalNext.classList.remove("hidden");
-    }
+    const gallery = getGallery(project);
+    const multiple = gallery.length > 1;
+
+    modalPrev.classList.toggle("hidden", !multiple);
+    modalNext.classList.toggle("hidden", !multiple);
 
     modal.classList.add("show");
   }
 
-  function updateModalImage() {
+  /* ============================
+     7 — Atualizar conteúdo do pop-up
+  ============================ */
+  function updateModalContent() {
     const project = allProjects[currentProjectIndex];
-    if (!project) return;
-
     const gallery = getGallery(project);
-    if (!gallery.length) return;
 
-    if (modalImg) {
-      modalImg.src = gallery[currentImageIndex];
+    const item = gallery[currentImageIndex];
+
+    if (item.type === "video") {
+      modalMedia.innerHTML = `
+        <video controls autoplay style="width:100%;max-height:85vh;object-fit:contain;background:#000;">
+          <source src="${item.src}" type="video/mp4">
+        </video>
+      `;
+    } else {
+      modalMedia.innerHTML = `
+        <img src="${item.src}" style="width:100%;max-height:85vh;object-fit:contain;background:#000;">
+      `;
     }
   }
 
-  function closeProjectModal() {
-    if (modal) modal.classList.remove("show");
+  /* ============================
+     8 — Navegação (loop)
+  ============================ */
+  function showPrev() {
+    const gallery = getGallery(allProjects[currentProjectIndex]);
+    currentImageIndex = (currentImageIndex - 1 + gallery.length) % gallery.length;
+    updateModalContent();
   }
 
-  function showPrevImage() {
-    const project = allProjects[currentProjectIndex];
-    const gallery = getGallery(project);
-    if (currentImageIndex > 0) {
-      currentImageIndex--;
-      updateModalImage();
-      if (gallery.length <= 1) {
-        modalPrev && modalPrev.classList.add("hidden");
-        modalNext && modalNext.classList.add("hidden");
-      }
-    }
+  function showNext() {
+    const gallery = getGallery(allProjects[currentProjectIndex]);
+    currentImageIndex = (currentImageIndex + 1) % gallery.length;
+    updateModalContent();
   }
 
-  function showNextImage() {
-    const project = allProjects[currentProjectIndex];
-    const gallery = getGallery(project);
-    if (currentImageIndex < gallery.length - 1) {
-      currentImageIndex++;
-      updateModalImage();
-    }
-  }
+  modalPrev?.addEventListener("click", showPrev);
+  modalNext?.addEventListener("click", showNext);
+  modalClose?.addEventListener("click", () => modal.classList.remove("show"));
 
-  if (modalClose) modalClose.addEventListener("click", closeProjectModal);
-  if (modalPrev) modalPrev.addEventListener("click", showPrevImage);
-  if (modalNext) modalNext.addEventListener("click", showNextImage);
-
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal || e.target.classList.contains("project-modal-backdrop")) {
-        closeProjectModal();
-      }
-    });
-  }
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.remove("show");
+  });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeProjectModal();
+    if (e.key === "Escape") modal.classList.remove("show");
   });
 });

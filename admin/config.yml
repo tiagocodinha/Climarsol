@@ -2,8 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-# 👇 TODOS os uploads passam a ir para aqui (pasta na raiz do repo)
-media_folder: "/content/projetos"
+media_folder: "content/projetos"
 public_folder: "/content/projetos"
 
 locale: "pt"
@@ -22,10 +21,8 @@ collections:
         label: "Lista de projetos"
         file: "data/projects.json"
         format: "json"
-        description: "Lista de projetos mostrados no Portfólio e na Homepage"
 
         fields:
-          # Chave principal do ficheiro JSON: { "projects": [ ... ] }
           - label: "Projetos"
             name: "projects"
             widget: "list"
@@ -34,9 +31,7 @@ collections:
             summary: "{{fields.title}} ({{fields.category}})"
 
             fields:
-              - label: "Título"
-                name: "title"
-                widget: "string"
+              - { label: "Título", name: "title", widget: "string" }
 
               - label: "Categoria"
                 name: "category"
@@ -48,17 +43,25 @@ collections:
                   - { label: "Escadas", value: "escadas" }
                   - { label: "Outros", value: "outros" }
 
-              # Imagem principal do projeto (a que aparece no card)
               - label: "Imagem principal"
                 name: "image"
                 widget: "image"
 
-              # Galeria para o pop-up (imagens adicionais)
-              - label: "Galeria (imagens adicionais)"
+              - label: "Conteúdos adicionais (imagens ou vídeos)"
                 name: "gallery"
                 widget: "list"
                 required: false
-                field:
-                  label: "Imagem"
-                  name: "image"
-                  widget: "image"
+                fields:
+                  - label: "Tipo"
+                    name: "type"
+                    widget: "select"
+                    options:
+                      - { label: "Imagem", value: "image" }
+                      - { label: "Vídeo", value: "video" }
+                    default: "image"
+
+                  - label: "Ficheiro"
+                    name: "file"
+                    widget: "file"
+                    media_folder: "/content/projetos"
+                    public_folder: "/content/projetos"
