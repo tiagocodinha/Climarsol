@@ -145,3 +145,17 @@ document.addEventListener('click', function(event) {
   }
 });
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.pathname.replace(/\/$/, ""); // remove último /
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute("href").replace(/\/$/, "");
+
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+    }
+  });
+});

@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================
-     7 — Atualizar conteúdo do pop-up
+    7 — Atualizar conteúdo do pop-up
   ============================ */
   function updateModalContent() {
     if (!modalMedia) return;
@@ -201,16 +201,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (item.type === "video") {
       modalMedia.innerHTML = `
-        <video controls autoplay style="width:100%;max-height:85vh;object-fit:contain;background:#000;">
+        <video id="projectModalVideo"
+              autoplay
+              loop
+              muted
+              playsinline
+              style="width:100%;max-height:85vh;object-fit:contain;background:#000;cursor:pointer;">
           <source src="${item.src}" type="video/mp4">
         </video>
       `;
+
+      const videoEl = modalMedia.querySelector("#projectModalVideo");
+
+      // Clique pausa/retoma (opcional — posso remover se quiseres)
+      videoEl.addEventListener("click", () => {
+        if (videoEl.paused) {
+          videoEl.play();
+        } else {
+          videoEl.pause();
+        }
+      });
+
     } else {
       modalMedia.innerHTML = `
-        <img src="${item.src}" style="width:100%;max-height:85vh;object-fit:contain;background:#000;">
+        <img src="${item.src}" 
+            style="width:100%;max-height:85vh;object-fit:contain;background:#000;">
       `;
     }
   }
+
 
   /* ============================
      8 — Navegação (loop)
@@ -255,3 +274,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
