@@ -10,6 +10,17 @@
           "video_url": "https://climarsol.pt/media/MetaTest.mp4"
         }
       ]
+    },
+    {
+      "title": "Escadas Madeira",
+      "category": "cozinhas",
+      "image": "/content/projetos/pop-up-2.jpg",
+      "gallery": [
+        {
+          "type": "video",
+          "video_url": "http://climarsol.pt/media/pedrios.mp4"
+        }
+      ]
     }
   ]
 }
