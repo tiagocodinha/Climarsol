@@ -96,7 +96,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let filtered =
       !category || category === "todos"
         ? allProjects
-        : allProjects.filter((p) => p.category === category);
+        : allProjects.filter((p) => {
+            if (!p.category) return false;
+
+            // Se for múltipla escolha (array)
+            if (Array.isArray(p.category)) {
+              return p.category.includes(category);
+            }
+
+            // Compatibilidade com projetos antigos (string única)
+            return p.category === category;
+          });
 
     if (!filtered.length) {
       if (projectsEmpty) projectsEmpty.style.display = "block";

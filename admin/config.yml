@@ -34,9 +34,11 @@ collections:
             fields:
               - { label: "Título", name: "title", widget: "string" }
 
-              - label: "Categoria"
+              - label: "Categorias"
                 name: "category"
                 widget: "select"
+                multiple: true
+                min: 1        # obriga a ter pelo menos 1 categoria
                 options:
                   - { label: "Cozinhas", value: "cozinhas" }
                   - { label: "Roupeiros", value: "roupeiros" }
