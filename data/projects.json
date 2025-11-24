@@ -1,3 +1,13 @@
 {
-  "projects": []
+  "projects": [
+    {
+      "title": "Apartamento Caldas da Rainha",
+      "category": [
+        "cozinhas",
+        "roupeiros",
+        "portas"
+      ],
+      "image": "/content/projetos/climarsol_junho-5.jpg"
+    }
+  ]
 }
