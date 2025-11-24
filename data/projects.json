@@ -7,7 +7,21 @@
         "roupeiros",
         "portas"
       ],
-      "image": "/content/projetos/climarsol_junho-5.jpg"
+      "image": "/content/projetos/climarsol_junho-5.jpg",
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol_junho-6.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol_junho-10.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol_junho-18.jpg"
+        }
+      ]
     }
   ]
 }
