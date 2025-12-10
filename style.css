@@ -136,7 +136,7 @@ body {
 }
 
 .nav-link:hover {
-  color: var(--accent-color);
+  color: #a8a8a8;
 }
 
 .nav-link:hover::after {
@@ -144,7 +144,7 @@ body {
 }
 
 .nav-link.active {
-  color: var(--accent-color) !important;
+  color: #a8a8a8 !important;
 }
 
 .nav-link.active::after {
@@ -179,11 +179,11 @@ body {
 }
 
 .lang-option.active {
-  color: var(--accent-color);
+  color: #a8a8a8;
 }
 
 .lang-option:hover {
-  color: var(--primary-color);
+  color: #a8a8a8;
 }
 
 .lang-separator {
@@ -797,113 +797,168 @@ body {
 
 /* FOOTER DESKTOP */
 .footer {
-    background-color: #4b2e28;
-    padding: 18px 0;
-    color: white;
+    background-color: white;
+    padding: 10px 0;
+    color: #4b2e28;
     font-family: "Inter", sans-serif;
 }
 
 .footer-flex {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;      /* tudo numa só linha */
+    gap: 24px;
 }
 
+/* blocos principais do footer */
 .footer-left,
 .footer-center,
 .footer-right {
-    flex: 1;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;    /* centra verticalmente tudo */
+    justify-content: center;
+    gap: 8px;
 }
 
+/* texto "© 2025 Climarsol" */
 .footer-left p {
     margin: 0;
-    line-height: 1.4;
+    line-height: 1;         /* mesma line-height para alinhar com a bolinha e o "by" */
+    text-align: left;
+    white-space: nowrap;
 }
 
 .footer-copy {
-    font-size: 14px;
+    font-size: 12px;
 }
 
+/* título "Cofinanciado por:" e afins */
 .cof-title,
 .by-title {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
-    margin-top: 14px;
-    margin-bottom: 2px;
-    line-height: 1;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.cof-logos {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .cof-logos img {
-    height: 48px;
-    margin: 0 6px;
+    height: 32px;
+    display: block;
 }
 
-.stagelink-logo {
-    height: 55px;
-    opacity: 0.9;
+/* bloco da direita (se precisares mais tarde) */
+.footer-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
+
+/* "by: Stagelink" */
+.footer-by {
+    display: flex;
+    align-items: center;
+    gap: 2px;          /* encosta mais o logo ao "by" */
+}
+
+.footer-by span {
+    font-size: 12px;
+    margin: 0;
+    white-space: nowrap;
+    line-height: 1;    /* igual ao resto para alinhar */
+}
+
+.footer-by a {
+    display: flex;
+    align-items: center;
+}
+
+/* logo Stagelink centrado */
+.stagelink-logo {
+    height: 24px;
+    display: block;
+}
+
+/* bolinha preta entre o texto e o "by" */
+.footer-dot {
+    font-size: 8px;
+    line-height: 1;
+    margin: 0 4px;
+    opacity: 0.8;
+    display: inline-flex;
+    align-items: center;   /* centra a bolinha verticalmente */
+    justify-content: center;
+}
+
+
 
 /* FOOTER MOBILE */
 @media (max-width: 768px) {
 
-    .footer-flex {
-        display: flex;
-        flex-wrap: wrap;          /* permite 2 linhas */
-        align-items: flex-start;
-        text-align: left;
-        row-gap: 8px;
-    }
+  .footer-flex {
+    display: flex;
+    flex-wrap: wrap;          /* permite quebrar em 2 linhas */
+    align-items: center;
+    justify-content: center;  /* centra tudo horizontalmente */
+    row-gap: 8px;
+    text-align: center;
+  }
 
-    /* 1.ª linha: esquerda e direita, cada uma com 50% */
-    .footer-left,
-    .footer-right {
-        flex: 0 0 50%;
-    }
+  /* Linha "© 2025 Climarsol  ●  by: Stagelink" centrada */
+  .footer-left {
+    flex: 0 0 100%;           /* ocupa a largura toda */
+    justify-content: center;  /* centra o conteúdo */
+    padding: 0;
+    font-size: 12px;
+  }
 
-    .footer-left {
-        padding-left: 16px;
-        font-size: 12px;
-    }
+  .footer-left .footer-copy {
+    font-size: 12px;
+  }
 
-    .footer-left .footer-copy {
-        font-size: 12px;
-    }
+  /* Logos Centro 2030 centrados na linha abaixo */
+  .footer-center {
+    order: 2;                 /* vem logo a seguir à linha de cima */
+    flex: 0 0 100%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 4px;
+  }
 
-    .footer-right {
-        text-align: right;
-        padding-right: 16px;
-        font-size: 12px;
-    }
+  /* esconder "Cofinanciado por:" em mobile */
+  .cof-title {
+    display: none;
+  }
 
-    .footer-right .by-title {
-        font-size: 12px;
-        margin-top: 0;
-        margin-bottom: 4px;
-    }
+  .cof-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
 
-    .stagelink-logo {
-        height: 32px;
-    }
+  .cof-logos img {
+    height: 40px;
+    margin: 0 4px;
+  }
 
-    /* 2.ª linha: Cofinanciado por centrado em baixo */
-    .footer-center {
-        order: 3;              /* vai para a linha de baixo */
-        flex: 0 0 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .cof-title {
-        font-size: 13px;
-        margin-top: 0;
-        margin-bottom: 4px;
-    }
-
-    .cof-logos img {
-        height: 40px;
-        margin: 0 6px;
-    }
+  /* caso uses footer-right noutra página, também centrado */
+  .footer-right {
+    flex: 0 0 100%;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+    font-size: 12px;
+  }
 }
 
 
@@ -1244,8 +1299,8 @@ body {
 }
 
 .theme-light.empresa-diferenciacao {
-  background: #ffffff;
-  color: var(--text-color);
+    background: #f9f9f9;   /* cinzento igual ao Contactos */
+    color: var(--text-color);
 }
 
 .theme-light.empresa-diferenciacao h2 {
