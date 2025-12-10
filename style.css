@@ -589,8 +589,9 @@ body {
 
 .contact-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
   gap: 3rem;
+  align-items: flex-start !important;  
 }
 
 .contact-form-wrapper h3,
@@ -792,18 +793,122 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* FOOTER */
 
+
+/* FOOTER DESKTOP */
 .footer {
-  background: var(--primary-color);
-  color: #fff;
-  padding: 2rem 0;
-  text-align: center;
+    background-color: #4b2e28;
+    padding: 18px 0;
+    color: white;
+    font-family: "Inter", sans-serif;
 }
 
-.footer p {
-  font-size: 0.95rem;
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+}
+
+.footer-left p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.footer-copy {
+    font-size: 14px;
+}
+
+.cof-title,
+.by-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 14px;
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.cof-logos img {
+    height: 48px;
+    margin: 0 6px;
+}
+
+.stagelink-logo {
+    height: 55px;
+    opacity: 0.9;
+}
+
+/* FOOTER MOBILE */
+@media (max-width: 768px) {
+
+    .footer-flex {
+        display: flex;
+        flex-wrap: wrap;          /* permite 2 linhas */
+        align-items: flex-start;
+        text-align: left;
+        row-gap: 8px;
+    }
+
+    /* 1.ª linha: esquerda e direita, cada uma com 50% */
+    .footer-left,
+    .footer-right {
+        flex: 0 0 50%;
+    }
+
+    .footer-left {
+        padding-left: 16px;
+        font-size: 12px;
+    }
+
+    .footer-left .footer-copy {
+        font-size: 12px;
+    }
+
+    .footer-right {
+        text-align: right;
+        padding-right: 16px;
+        font-size: 12px;
+    }
+
+    .footer-right .by-title {
+        font-size: 12px;
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+
+    .stagelink-logo {
+        height: 32px;
+    }
+
+    /* 2.ª linha: Cofinanciado por centrado em baixo */
+    .footer-center {
+        order: 3;              /* vai para a linha de baixo */
+        flex: 0 0 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .cof-title {
+        font-size: 13px;
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+
+    .cof-logos img {
+        height: 40px;
+        margin: 0 6px;
+    }
+}
+
+
+
+
 
 /* PÁGINA PORTFÓLIO */
 
@@ -1436,55 +1541,34 @@ body {
 
 
 
-/* FOOTER NOVO */
 
-.footer {
-  background: var(--primary-color);
-  color: #fff;
-  padding: 2rem 0;
+
+#intro-logo {
+    position: absolute;          /* cola ao HERO, não ao ecrã */
+    bottom: 40px;                /* 40px acima do fundo do vídeo */
+    left: 50%;
+    transform: translateX(-50%); /* só centra na horizontal */
+    opacity: 0;
+    animation: fadeInOut 7s ease forwards;
+    z-index: 3;                  /* acima do vídeo e overlay, mas abaixo do menu se for preciso */
 }
 
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+#intro-logo img {
+    width: 420px;
+    height: auto;
+    cursor: pointer;
 }
 
-.footer-left p {
-  font-size: 0.95rem;
-  margin: 0;
+#intro-logo img {
+    width: 420px;
+    height: auto;
+    cursor: pointer;
 }
 
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  gap: 0.3rem;
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
-.footer-label {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.footer-logo {
-  display: block;
-  max-height: 55px; /* aumenta/diminui se quiseres */
-  width: auto;
-}
-
-/* Mobile: tudo alinhado à esquerda para não apertar demais */
-@media (max-width: 600px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-right {
-    align-items: flex-start;
-    text-align: left;
-  }
-}

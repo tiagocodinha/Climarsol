@@ -33,7 +33,7 @@
           <ul class="nav-menu" id="navMenu">
               <li><a href="/portfolio/" class="nav-link">Portfólio</a></li>
               <li><a href="/empresa/" class="nav-link">A Empresa</a></li>
-              <li><a href="/#contact" class="nav-link">Contactos</a></li>
+              <li><a href="/contactos/" class="nav-link">Contactos</a></li>
               <li class="lang-toggle-mobile">
                   <span class="lang-option active">PT</span>
                   <span class="lang-separator">|</span>
@@ -84,22 +84,35 @@
 
   <!-- Footer -->
   <footer class="footer">
-        <div class="container footer-content">
+        <div class="container footer-flex">
+
+            <!-- ESQUERDA -->
             <div class="footer-left">
-                <p>&copy; 2025 Climarsol. Todos os direitos reservados.</p>
+                <p class="footer-copy">© 2025 Climarsol</p>
+                <p class="footer-copy">Todos os direitos reservados.</p>
             </div>
 
+            <!-- CENTRO -->
+            <div class="footer-center">
+                <p class="cof-title">Cofinanciado por:</p>
+                <div class="cof-logos">
+                    <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf" target="_blank">
+                        <img src="/content/centro2030.png" alt="Centro 2030">
+                    </a>
+                </div>
+            </div>
+
+            <!-- DIREITA -->
             <div class="footer-right">
-                <span class="footer-label">Cofinanciado por:</span>
-                <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf"
-                   target="_blank" rel="noopener noreferrer">
-                    <img src="/content/centro2030.png"
-                         alt="Centro 2030 - Portugal 2030 - Cofinanciado pela União Europeia"
-                         class="footer-logo">
+                <p class="by-title">By:</p>
+                <a href="https://www.stagelink.pt" target="_blank" rel="noopener noreferrer">
+                    <img src="/content/stagelink.png" alt="Stagelink" class="stagelink-logo">
                 </a>
             </div>
+
         </div>
     </footer>
+
 
   <!-- JS específico da página de projetos -->
   <script src="/projects.js"></script>

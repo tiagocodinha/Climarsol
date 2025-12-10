@@ -159,3 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+
+
+    setTimeout(() => {
+        const logo = document.getElementById("intro-logo");
+        if (logo) logo.remove();
+    }, 7000);

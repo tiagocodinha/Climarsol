@@ -33,7 +33,7 @@
             <ul class="nav-menu" id="navMenu">
             <li><a href="/portfolio/" class="nav-link">Portfólio</a></li>
             <li><a href="/empresa/" class="nav-link">A Empresa</a></li>
-            <li><a href="#contact" class="nav-link">Contactos</a></li>
+            <li><a href="/contactos/" class="nav-link">Contactos</a></li>
             <li class="lang-toggle-mobile"> <!-- Este entra só em mobile -->
                 <span class="lang-option active">PT</span>
                 <span class="lang-separator">|</span>
@@ -49,6 +49,7 @@
         </div>
     </nav>
 
+    
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -56,6 +57,13 @@
             <source src="content/prediocorreios.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
+
+        <div id="intro-logo">
+            <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf" target="_blank">
+                <img src="content/centro2030.png" alt="Centro 2030">
+            </a>
+        </div>
+
         <div class="hero-content">
             <h1 class="hero-title">Carpintaria Climarsol</h1>
             <p class="hero-subtitle">Excelência em mobiliário por medida. Qualidade artesanal, design moderno.</p>
@@ -158,120 +166,89 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contactos</h2>
+
             <div class="contact-content">
-                <div class="contact-form-wrapper">
-                    <h3>Solicite o Seu Orçamento</h3>
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nome *</label>
-                            <input type="text" id="name" name="name" required>
-                            <span class="error-message" id="nameError"></span>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                            <span class="error-message" id="emailError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Assunto</label>
-                            <input type="text" id="subject" name="subject">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Mensagem / Descrição do Projeto *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                            <span class="error-message" id="messageError"></span>
-                        </div>
-
-                        <button type="submit" class="submit-button">Enviar Pedido</button>
-                        <div class="success-message" id="successMessage">
-                            Obrigado! Entraremos em contacto em breve.
-                        </div>
-                    </form>
-                </div>
-
-                <div class="contact-info-wrapper">
+                <!-- CONTACT INFO ONLY -->
+                <div class="contact-info-wrapper" style="grid-column: span 2;">
                     <div class="contact-info">
+
                         <h3>Informações de Contacto</h3>
 
-                         <a class="info-item" href="https://maps.app.goo.gl/yaPJU1sT6sRD7h4x9" target="_blank">
-                            <div class="info-icon">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div class="info-text">
-                                Travessa da Mouchinha 2450-027 Famalicão, Portugal
-                            </div>
+                        <a class="info-item" href="https://maps.app.goo.gl/yaPJU1sT6sRD7h4x9" target="_blank">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-text">Travessa da Mouchinha 2450-027 Famalicão, Nazaré</div>
                         </a>
 
                         <a class="info-item" href="tel:+351262999505">
-                            <div class="info-icon">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div class="info-text">
-                                +351 262 999 505
-                            </div>
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-text">+351 262 999 505</div>
                         </a>
 
                         <a class="info-item" href="tel:+351914583889">
-                            <div class="info-icon">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
-                            </div>
-                            <div class="info-text">
-                                +351 914 583 889
-                            </div>
+                            <div class="info-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="info-text">+351 914 583 889</div>
                         </a>
 
                         <a class="info-item" href="mailto:geral@climarsol.pt">
-                            <div class="info-icon">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div class="info-text">
-                                geral@climarsol.pt
-                            </div>
+                            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="info-text">geral@climarsol.pt</div>
                         </a>
-                        
+
                         <div class="social-media">
                             <strong>Redes Sociais</strong>
                             <div class="social-links">
-                                <a href="https://www.facebook.com/climarsol" class="social-link social-circle" aria-label="Facebook Climarsol">
+                                <a href="https://facebook.com/climarsol" class="social-link social-circle">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="https://www.instagram.com/carpintariaclimarsol/" class="social-link social-circle" aria-label="Instagram Climarsol">
+                                <a href="https://instagram.com/carpintariaclimarsol" class="social-link social-circle">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
                         </div>
+
+                        <a href="/contactos/" class="btn-secondary" style="margin-top:1.5rem; display:inline-block;">
+                            Enviar Mensagem
+                        </a>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
+        <div class="container footer-flex">
+
+            <!-- ESQUERDA -->
             <div class="footer-left">
-                <p>&copy; 2025 Climarsol. Todos os direitos reservados.</p>
+                <p class="footer-copy">© 2025 Climarsol</p>
+                <p class="footer-copy">Todos os direitos reservados.</p>
             </div>
 
+            <!-- CENTRO -->
+            <div class="footer-center">
+                <p class="cof-title">Cofinanciado por:</p>
+                <div class="cof-logos">
+                    <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf" target="_blank">
+                        <img src="/content/centro2030.png" alt="Centro 2030">
+                    </a>
+                </div>
+            </div>
+
+            <!-- DIREITA -->
             <div class="footer-right">
-                <span class="footer-label">Cofinanciado por:</span>
-                <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf"
-                   target="_blank" rel="noopener noreferrer">
-                    <img src="content/centro2030.png"
-                         alt="Centro 2030 - Portugal 2030 - Cofinanciado pela União Europeia"
-                         class="footer-logo">
+                <p class="by-title">By:</p>
+                <a href="https://www.stagelink.pt" target="_blank" rel="noopener noreferrer">
+                    <img src="/content/stagelink.png" alt="Stagelink" class="stagelink-logo">
                 </a>
             </div>
+
         </div>
     </footer>
+
     
      <!-- Modal de Projeto (usado na home e no portfólio) -->
     <!-- Modal de galeria de projeto -->
