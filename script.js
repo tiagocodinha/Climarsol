@@ -169,3 +169,46 @@ document.addEventListener("DOMContentLoaded", () => {
         const logo = document.getElementById("intro-logo");
         if (logo) logo.remove();
     }, 7000);
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".logo-track");
+  if (!track) return;
+
+  const SPEED_PX_PER_SEC = 70;   // velocidade
+  const MIN_DURATION_S   = 20;   // duração mínima da volta
+
+  // duplica os logos para o loop não “cortar”
+  if (![...track.children].some(n => n.classList?.contains("clone"))) {
+    const originals = Array.from(track.children);
+    originals.forEach((node) => {
+      const clone = node.cloneNode(true);
+      clone.classList.add("clone");
+      track.appendChild(clone);
+    });
+  }
+
+  const setLoopWidth = () => {
+    // metade da largura total = 1 ciclo completo
+    const loopPx = track.scrollWidth / 2;
+    track.style.setProperty("--loop-px", `${loopPx}px`);
+
+    const duration = Math.max(MIN_DURATION_S, loopPx / SPEED_PX_PER_SEC);
+    track.style.setProperty("--marquee-duration", `${duration}s`);
+  };
+
+  const onReady = () => setLoopWidth();
+
+  if (document.readyState === "complete") {
+    onReady();
+  } else {
+    window.addEventListener("load", onReady);
+  }
+
+  let rafId = null;
+  window.addEventListener("resize", () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(setLoopWidth);
+  });
+});

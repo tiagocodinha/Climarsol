@@ -345,6 +345,15 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* NOVO */
+.service-icon-img {
+  width: 36px;
+  height: 36px;
+  display: block;
+  /* se o SVG for escuro, isto “vira-o” para branco */
+  filter: brightness(0) invert(1);
+}
+
 .service-card h3 {
   font-size: 1.4rem;
   margin-bottom: 1rem;
@@ -1361,6 +1370,10 @@ body {
   padding: 7rem 0 4rem;
 }
 
+.justificado {
+    text-align: justify;
+}
+
 /* RESPONSIVO GLOBAL */
 
 @media (max-width: 968px) {
@@ -1627,3 +1640,167 @@ body {
     100% { opacity: 0; }
 }
 
+
+
+
+
+/* LOGOS CLIENTES */
+
+.logo-carousel {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem; /* mesma distância entre as caixas de logo */
+  width: max-content; /* importante para o JS calcular a largura */
+  animation: logos-marquee var(--marquee-duration, 25s) linear infinite;
+}
+
+/* Caixa igual para todos os logos */
+.logo-item {
+  width: 150px;   /* podes subir para 170/180 se quiseres maior */
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* “Bigger” = caixa um pouco maior, SEM transform */
+.logo-item.bigger {
+  transform: scale(2);
+}
+
+/* Imagem do logo */
+.logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+
+  /* tudo a preto */
+  filter: brightness(0) saturate(100%);
+  opacity: 0.9;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Hover igual para todos (incluindo bigger) */
+.logo-item:hover .logo-img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* fades laterais tipo Stagelink */
+.logo-carousel::before,
+.logo-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logo-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.logo-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+
+@keyframes logos-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * var(--loop-px, 1000px))); }
+}
+
+@media (max-width: 768px) {
+  .logo-track {
+    gap: 2rem;
+  }
+
+  .logo-item {
+    width: 120px;
+    height: 60px;
+  }
+
+  .logo-img {
+    height: 32px;
+  }
+}
+
+/* Espaço extra na secção */
+section.clients {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
+
+
+
+/* SECÇÃO OS NOSSOS RECURSOS */
+.resources {
+  padding: 100px 0;
+  background: #f9f9f9;
+}
+
+.resources .section-title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card */
+.resource-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Imagem */
+.resource-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.resource-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.resource-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Título */
+.resource-title {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+}
