@@ -1096,7 +1096,7 @@ body {
   padding: 7rem 0 4rem;
   background:
     linear-gradient(135deg, rgba(143, 80, 69, 0.7), rgba(203, 110, 51, 0.7)),
-    url('/content/heroempresa.jpg') center/cover no-repeat;
+    url('/content/fabrica.jpg') center/cover no-repeat;
   color: #fff;
 }
 
@@ -1156,13 +1156,17 @@ body {
   margin-bottom: 1.2rem;
 }
 
-.empresa-historia-img {
-  min-height: 320px;
+.empresa-historia-img{
   border-radius: 12px;
-  background:
-    linear-gradient(135deg, rgba(143, 80, 69, 0.18), rgba(203, 110, 51, 0.15)),
-    url('/content/empresa1.jpg') center/cover no-repeat;
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
+  background: transparent; /* garante que não há “box” visível */
+}
+
+.empresa-historia-img img{
+  display: block;       /* remove espaços/brancas */
+  width: 100%;
+  height: auto;
 }
 
 .empresa-valores {
@@ -1803,4 +1807,28 @@ section.clients {
   font-size: 1.2rem;
   font-weight: 600;
   color: #222;
+}
+
+
+@media (max-width: 968px) {
+  .empresa-historia-img{
+    min-height: 0 !important;   /* mata a altura forçada que cria “box” */
+    height: auto;
+  }
+
+  .empresa-historia-img img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 968px) {
+  .empresa-historia-text {
+    order: 1;
+  }
+
+  .empresa-historia-img {
+    order: 2; /* imagem depois do texto */
+  }
 }
