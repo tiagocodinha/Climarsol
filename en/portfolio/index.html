@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Climarsol" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Climarsol – Projects</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+      <div class="nav-container">
+          <div class="logo">
+              <a href="/en/">
+                  <img src="/content/Logoclimarsol.svg" alt="Climarsol" class="logo-img">
+              </a>
+          </div>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+          <ul class="nav-menu" id="navMenu">
+              <li><a href="/en/portfolio/" class="nav-link">Portfolio</a></li>
+              <li><a href="/en/company/" class="nav-link">Company</a></li>
+              <li><a href="/en/contacts/" class="nav-link">Contacts</a></li>
+              <li class="lang-toggle-mobile">
+                  <span class="lang-option">PT</span>
+                  <span class="lang-separator">|</span>
+                  <span class="lang-option active">EN</span>
+              </li>
+          </ul>
+
+          <!-- PT|EN desktop -->
+          <div class="lang-toggle-wrapper">
+              <span class="lang-option">PT</span>
+              <span class="lang-separator">|</span>
+              <span class="lang-option active">EN</span>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Projects Hero -->
+  <section class="projects-hero">
+    <div class="projects-hero-overlay"></div>
+    <div class="projects-hero-content container">
+      <p class="projects-hero-eyebrow">Portfolio</p>
+      <h1 class="projects-hero-title">Climarsol Projects</h1>
+      <p class="projects-hero-subtitle">
+        Kitchens, wardrobes, doors and staircases designed in detail and made to fit each space.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filters + Grid -->
+  <section class="projects-list-section">
+    <div class="container">
+
+      <div class="projects-filter-bar">
+        <button class="filter-btn active" data-filter="todos">All</button>
+        <button class="filter-btn" data-filter="cozinhas">Kitchens</button>
+        <button class="filter-btn" data-filter="portas">Doors</button>
+        <button class="filter-btn" data-filter="roupeiros">Wardrobes</button>
+        <button class="filter-btn" data-filter="escadas">Staircases</button>
+      </div>
+
+      <div id="projectsGrid" class="projects-grid">
+        <!-- Projects loaded via JS -->
+      </div>
+
+      <p id="projectsEmpty" class="projects-empty-state" style="display:none;">
+        There are no projects in this category yet. Please select “All” or another category.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Contacts</h2>
+
+      <div class="contact-content">
+
+        <div class="contact-info-wrapper" style="grid-column: span 2;">
+          <div class="contact-info">
+
+            <h3>Contact Information</h3>
+
+            <a class="info-item" href="https://maps.app.goo.gl/yaPJU1sT6sRD7h4x9" target="_blank">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-text">Travessa da Mouchinha, 2450-027 Famalicão, Nazaré</div>
+            </a>
+
+            <a class="info-item" href="tel:+351262999505">
+              <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="info-text">+351 262 999 505</div>
+            </a>
+
+            <a class="info-item" href="tel:+351914583889">
+              <div class="info-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+              <div class="info-text">+351 913 774 673 | +351 914 583 889</div>
+            </a>
+
+            <a class="info-item" href="mailto:geral@climarsol.pt">
+              <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="info-text">geral@climarsol.pt</div>
+            </a>
+
+            <div class="social-media">
+              <strong>Social Media</strong>
+              <div class="social-links">
+                <a href="https://facebook.com/climarsol" target="_blank" rel="noopener noreferrer" class="social-link social-circle">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/carpintariaclimarsol" target="_blank" rel="noopener noreferrer" class="social-link social-circle">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+
+            <a href="/en/contacts/" class="btn-secondary" style="margin-top:1.5rem; display:inline-block;">
+              Send Message
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-flex">
+
+      <div class="footer-left">
+        <p class="footer-copy">© 2025 Climarsol</p>
+        <p class="footer-dot">●</p>
+        <div class="footer-by">
+          <span>by:</span>
+          <a href="https://www.stagelink.pt" target="_blank" rel="noopener noreferrer">
+            <img src="/content/stagelink.png" alt="Stagelink" class="stagelink-logo">
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <p class="cof-title">Co-financed by:</p>
+        <div class="cof-logos">
+          <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf" target="_blank">
+            <img src="/content/centro2030.png" alt="Centro 2030">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="/projects.js"></script>
+  <script src="/script.js"></script>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="project-modal">
+    <div class="project-modal-backdrop"></div>
+
+    <div class="project-modal-content">
+      <button class="project-modal-close">&times;</button>
+
+      <div id="projectModalMedia"></div>
+
+      <button class="project-modal-arrow prev">&#10094;</button>
+      <button class="project-modal-arrow next">&#10095;</button>
+    </div>
+  </div>
+
+</body>
+</html>

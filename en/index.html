@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Climarsol" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Climarsol | Mechanical Carpentry</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Use the same CSS file -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/en/">
+                    <img src="/content/Logoclimarsol.svg" alt="Climarsol" class="logo-img">
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/en/portfolio/" class="nav-link">Portfolio</a></li>
+                <li><a href="/en/company/" class="nav-link">Company</a></li>
+                <li><a href="/en/contacts/" class="nav-link">Contacts</a></li>
+
+                <li class="lang-toggle-mobile">
+                    <span class="lang-option">PT</span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-option active">EN</span>
+                </li>
+            </ul>
+
+            <!-- PT|EN desktop -->
+            <div class="lang-toggle-wrapper">
+                <span class="lang-option">PT</span>
+                <span class="lang-separator">|</span>
+                <span class="lang-option active">EN</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="/content/prediocorreios.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div id="intro-logo">
+            <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf" target="_blank">
+                <img src="/content/centro2030.png" alt="Centro 2030">
+            </a>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Climarsol Carpentry</h1>
+            <button class="cta-button" id="ctaButton">Contact Us</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="/content/icons/porta.svg" alt="Doors & Frames" class="service-icon-img">
+                    </div>
+                    <h3>Doors & Frames</h3>
+                    <p>Made-to-measure doors and frames with premium finishes for durability and insulation.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="/content/icons/cozinha.svg" alt="Custom Kitchens" class="service-icon-img">
+                    </div>
+                    <h3>Custom Kitchens</h3>
+                    <p>Functional and elegant kitchens designed to fit your needs and available space.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="/content/icons/roupeiro.svg" alt="Wardrobes" class="service-icon-img">
+                    </div>
+                    <h3>Wardrobes</h3>
+                    <p>Tailor-made wardrobes with smart storage solutions to maximize your space.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="/content/icons/mobiliario.svg" alt="Custom Carpentry" class="service-icon-img">
+                    </div>
+                    <h3>Custom Carpentry</h3>
+                    <p>Unique carpentry pieces designed specifically for your home or office.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="/content/icons/casadebanho.svg" alt="Bathrooms" class="service-icon-img">
+                    </div>
+                    <h3>Bathrooms</h3>
+                    <p>Moisture-resistant bathroom furniture that combines aesthetics and durability.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="/content/icons/escada.svg" alt="Staircases" class="service-icon-img">
+                    </div>
+                    <h3>Staircases</h3>
+                    <p>Made-to-measure staircases—safe, comfortable, and designed to elevate your architecture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+
+            <!-- JS (projects.js) fills the last 6 -->
+            <div id="projectsGridHome" class="projects-grid"></div>
+
+            <div class="projects-actions">
+                <a href="/en/portfolio/" class="btn-secondary">View all</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners / Brands -->
+    <section class="clients">
+        <div class="container">
+            <h2 class="section-title">Partners / Brands</h2>
+
+            <div class="logo-carousel">
+                <div class="logo-track">
+                    <div class="logo-item bigger">
+                        <img src="/content/empresas/angelo.png" alt="Angelo" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/content/empresas/coderne.png" alt="Coderne" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/content/empresas/edieng.png" alt="EDIENG" class="logo-img">
+                    </div>
+                    <div class="logo-item bigger">
+                        <img src="/content/empresas/engcon.png" alt="ENGCON" class="logo-img">
+                    </div>
+                    <div class="logo-item bigger">
+                        <img src="/content/empresas/escalas.png" alt="Escalas e Espaços" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/content/empresas/prespop.png" alt="Presprop" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/content/empresas/terralavanda.png" alt="TERRALAVANDA" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/content/empresas/veyel.png" alt="VEYEL" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="/content/empresas/itu.png" alt="ITU" class="logo-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacts</h2>
+
+            <div class="contact-content">
+                <!-- CONTACT INFO ONLY -->
+                <div class="contact-info-wrapper" style="grid-column: span 2;">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+
+                        <a class="info-item" href="https://maps.app.goo.gl/yaPJU1sT6sRD7h4x9" target="_blank">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-text">Travessa da Mouchinha, 2450-027 Famalicão, Nazaré</div>
+                        </a>
+
+                        <a class="info-item" href="tel:+351262999505">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-text">+351 262 999 505</div>
+                        </a>
+
+                        <a class="info-item" href="tel:+351914583889">
+                            <div class="info-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="info-text">+351 913 774 673 | +351 914 583 889</div>
+                        </a>
+
+                        <a class="info-item" href="mailto:geral@climarsol.pt">
+                            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="info-text">geral@climarsol.pt</div>
+                        </a>
+
+                        <div class="social-media">
+                            <strong>Social Media</strong>
+                            <div class="social-links">
+                                <a href="https://facebook.com/climarsol" target="_blank" rel="noopener noreferrer" class="social-link social-circle">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://instagram.com/carpintariaclimarsol" target="_blank" rel="noopener noreferrer" class="social-link social-circle">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <a href="/en/contacts/" class="btn-secondary" style="margin-top:1.5rem; display:inline-block;">
+                            Send a Message
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-flex">
+            <!-- LEFT -->
+            <div class="footer-left">
+                <p class="footer-copy">© 2025 Climarsol</p>
+                <p class="footer-dot">●</p>
+                <div class="footer-by">
+                    <span>by:</span>
+                    <a href="https://www.stagelink.pt" target="_blank" rel="noopener noreferrer">
+                        <img src="/content/stagelink.png" alt="Stagelink" class="stagelink-logo">
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="footer-center">
+                <p class="cof-title">Co-financed by:</p>
+                <div class="cof-logos">
+                    <a href="https://climarsol.pt/wp-content/uploads/2025/09/Ficha-de-Operacao.pdf" target="_blank">
+                        <img src="/content/centro2030.png" alt="Centro 2030">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Projeto (usado na home e no portfólio) -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-backdrop"></div>
+
+        <div class="project-modal-content">
+            <button class="project-modal-close">&times;</button>
+
+            <div id="projectModalMedia"></div>
+
+            <button class="project-modal-arrow prev">&#10094;</button>
+            <button class="project-modal-arrow next">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/script.js"></script>
+    <script src="/projects.js"></script>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", (user) => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
