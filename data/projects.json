@@ -44,6 +44,24 @@
         }
       ],
       "image": "/content/projetos/climarsol-agosto-20.jpg"
+    },
+    {
+      "title": "Moradias Caldas da Rainha",
+      "category": [
+        "roupeiros",
+        "portas"
+      ],
+      "image": "/content/projetos/climarsol_junho-27.jpg",
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol_junho-28.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol_junho-29.jpg"
+        }
+      ]
     }
   ]
 }
