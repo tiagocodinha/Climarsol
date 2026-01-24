@@ -1635,12 +1635,6 @@ body {
     cursor: pointer;
 }
 
-#intro-logo img {
-    width: 420px;
-    height: auto;
-    cursor: pointer;
-}
-
 @keyframes fadeInOut {
     0% { opacity: 0; }
     10% { opacity: 1; }
@@ -1740,6 +1734,16 @@ body {
 
   .logo-img {
     height: 32px;
+  }
+
+  #intro-logo{
+    bottom: calc(90px + env(safe-area-inset-bottom)); /* sobe mais e respeita iPhone notch */
+  }
+
+  #intro-logo img{
+    width: 240px;
+    max-width: 80vw;
+    height: auto;
   }
 }
 
