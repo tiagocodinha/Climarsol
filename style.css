@@ -1870,3 +1870,56 @@ section.clients {
     background: linear-gradient(to left, #000000, transparent) !important;
   }
 }
+
+
+/* =========================
+   DARK MODE (sistema) — MOBILE
+   mete logo, icons e hamburger a branco
+========================= */
+@media (prefers-color-scheme: dark) and (max-width: 968px) {
+
+  /* Logo Climarsol (navbar) */
+  .logo-img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  /* Hamburger (as 3 barras) */
+  .hamburger span {
+    background: #fff !important;
+  }
+
+  /* Menu mobile (links + PT|EN) */
+  .nav-menu {
+    background: #000 !important;            /* menu escuro */
+    color: #fff !important;
+  }
+
+  .nav-menu .nav-link {
+    color: #fff !important;
+  }
+
+  .lang-toggle-mobile .lang-option,
+  .lang-toggle-mobile .lang-separator {
+    color: #fff !important;
+  }
+
+  /* ÍCONES DOS SERVIÇOS (SVGs) */
+  .service-icon-img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  /* Se quiseres também o texto dos cards mais claro no dark mode */
+  .service-card h3 {
+    color: #fff !important;
+  }
+
+  .service-card p {
+    color: rgba(255,255,255,0.75) !important;
+  }
+
+  /* Se o fundo do card continuar branco, mete-o escuro (opcional) */
+  .service-card {
+    background: #0b0b0b !important;
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+}
