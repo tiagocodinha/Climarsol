@@ -1842,17 +1842,16 @@ section.clients {
 }
 
 
-@media (prefers-color-scheme: dark) {
-  .clients .logo-img{
-    filter: none !important;   /* deixa os logos “normais” */
-    opacity: 1 !important;
-  }
+/* Parceiros / Marcas - logos */
+/* Não “matar” os logos no carousel */
+.clients .logo-img{
+  filter: none !important;
+  opacity: 1 !important;
+}
 
-  /* fades laterais a ficar ok no dark mode */
-  .logo-carousel::before{
-    background: linear-gradient(to right, #0b0b0b, transparent);
-  }
-  .logo-carousel::after{
-    background: linear-gradient(to left, #0b0b0b, transparent);
-  }
+.clients .logo-carousel::before{
+  background: linear-gradient(to right, rgba(255,255,255,1), transparent);
+}
+.clients .logo-carousel::after{
+  background: linear-gradient(to left, rgba(255,255,255,1), transparent);
 }
