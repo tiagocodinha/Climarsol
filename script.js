@@ -221,6 +221,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+/* =========================
+   CURRENT YEAR IN FOOTER
+========================= */
+document.getElementById("year").textContent = new Date().getFullYear();
+
 /* =========================
    LANGUAGE SWITCH (PT <-> EN) + ACTIVE
    PT: /  /empresa/  /portfolio/  /contactos/
