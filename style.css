@@ -1855,3 +1855,18 @@ section.clients {
 .clients .logo-carousel::after{
   background: linear-gradient(to left, rgba(255,255,255,1), transparent);
 }
+
+
+/* =========================
+   LOGO CAROUSEL – DARK MODE
+   mantém fade mas em preto
+========================= */
+@media (prefers-color-scheme: dark) {
+  .logo-carousel::before {
+    background: linear-gradient(to right, #000000, transparent) !important;
+  }
+
+  .logo-carousel::after {
+    background: linear-gradient(to left, #000000, transparent) !important;
+  }
+}
