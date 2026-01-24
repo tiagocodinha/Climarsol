@@ -400,7 +400,11 @@ body {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  transform: translateZ(0);       /* força layer */
+  backface-visibility: hidden;
+  will-change: opacity;
 }
+
 
 .project-card:hover .project-image {
   transform: none;
