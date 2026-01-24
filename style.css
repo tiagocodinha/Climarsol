@@ -5,6 +5,7 @@
 }
 
 :root {
+  color-scheme: light;
   --primary-color: #472b25;
   --accent-color: #6c5551;
   --bg-color: #ffffff;
@@ -1922,4 +1923,12 @@ section.clients {
     background: #0b0b0b !important;
     border-color: rgba(255,255,255,0.08) !important;
   }
+}
+
+
+
+/* Desativar filtros de dark mode forçados pelo browser */
+html, body {
+  filter: none !important;
+  -webkit-filter: none !important;
 }
