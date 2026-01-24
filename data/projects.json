@@ -22,6 +22,28 @@
           "image": "https://climarsol.pt/media/apartcaldas4.jpg"
         }
       ]
+    },
+    {
+      "title": "Edifício Maria do Mar Nazaré",
+      "category": [
+        "roupeiros",
+        "portas"
+      ],
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-agosto-11.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-agosto-9.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-agosto-8.jpg"
+        }
+      ],
+      "image": "/content/projetos/climarsol-agosto-20.jpg"
     }
   ]
 }
