@@ -1840,3 +1840,19 @@ section.clients {
     order: 2; /* imagem depois do texto */
   }
 }
+
+
+@media (prefers-color-scheme: dark) {
+  .clients .logo-img{
+    filter: none !important;   /* deixa os logos “normais” */
+    opacity: 1 !important;
+  }
+
+  /* fades laterais a ficar ok no dark mode */
+  .logo-carousel::before{
+    background: linear-gradient(to right, #0b0b0b, transparent);
+  }
+  .logo-carousel::after{
+    background: linear-gradient(to left, #0b0b0b, transparent);
+  }
+}
