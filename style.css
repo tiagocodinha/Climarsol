@@ -1737,7 +1737,7 @@ body {
   }
 
   #intro-logo{
-    bottom: calc(90px + env(safe-area-inset-bottom)); /* sobe mais e respeita iPhone notch */
+    bottom: calc(130px + env(safe-area-inset-bottom)); /* sobe mais e respeita iPhone notch */
   }
 
   #intro-logo img{
