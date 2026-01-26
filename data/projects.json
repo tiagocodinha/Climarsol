@@ -7,19 +7,19 @@
         "roupeiros",
         "portas"
       ],
-      "image": "https://climarsol.pt/media/apartcaldas1.jpg",
+      "image": "/content/projetos/apartcaldas2.jpg",
       "gallery": [
         {
           "type": "image",
-          "image": "https://climarsol.pt/media/apartcaldas2.jpg"
+          "image": "/content/projetos/apartcaldas4.jpg"
         },
         {
           "type": "image",
-          "image": "https://climarsol.pt/media/apartcaldas3.jpg"
+          "image": "/content/projetos/apartcaldas3.jpg"
         },
         {
           "type": "image",
-          "image": "https://climarsol.pt/media/apartcaldas4.jpg"
+          "image": "/content/projetos/apartcaldas1.jpg"
         }
       ]
     },
