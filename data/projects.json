@@ -95,6 +95,24 @@
       "category": [
         "cozinhas"
       ]
+    },
+    {
+      "image": "/content/projetos/climarsol-volta-19jan.jpg",
+      "title": "Cozinha Alcobaça",
+      "category": [
+        "cozinhas",
+        "outros"
+      ],
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-volta-19jan-2-1-.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-volta-19jan-v2.jpg"
+        }
+      ]
     }
   ]
 }
