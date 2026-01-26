@@ -62,6 +62,19 @@
           "image": "/content/projetos/climarsol_junho-29.jpg"
         }
       ]
+    },
+    {
+      "image": "/content/projetos/1-1-.jpg",
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/2-1-.jpg"
+        }
+      ],
+      "title": "Cozinha Nazaré",
+      "category": [
+        "cozinhas"
+      ]
     }
   ]
 }
