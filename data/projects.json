@@ -127,6 +127,46 @@
       "category": [
         "cozinhas"
       ]
+    },
+    {
+      "image": "/content/projetos/1.jpg",
+      "category": [
+        "cozinhas",
+        "roupeiros",
+        "portas",
+        "outros"
+      ],
+      "title": "Edifício Multifamiliar Nazaré",
+      "gallery": [
+        {
+          "image": "/content/projetos/4.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/3.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/5.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/7.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/8.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/climarsol-set-29.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/11.jpg",
+          "type": "image"
+        }
+      ]
     }
   ]
 }
