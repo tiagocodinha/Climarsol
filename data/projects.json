@@ -7,19 +7,19 @@
         "roupeiros",
         "portas"
       ],
-      "image": "https://climarsol.pt/media/apartcaldas1.jpg",
+      "image": "/content/projetos/apartcaldas2.jpg",
       "gallery": [
         {
           "type": "image",
-          "image": "https://climarsol.pt/media/apartcaldas2.jpg"
+          "image": "/content/projetos/apartcaldas4.jpg"
         },
         {
           "type": "image",
-          "image": "https://climarsol.pt/media/apartcaldas3.jpg"
+          "image": "/content/projetos/apartcaldas3.jpg"
         },
         {
           "type": "image",
-          "image": "https://climarsol.pt/media/apartcaldas4.jpg"
+          "image": "/content/projetos/apartcaldas1.jpg"
         }
       ]
     },
@@ -60,6 +60,111 @@
         {
           "type": "image",
           "image": "/content/projetos/climarsol_junho-29.jpg"
+        }
+      ]
+    },
+    {
+      "image": "/content/projetos/1-1-.jpg",
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/2-1-.jpg"
+        }
+      ],
+      "title": "Cozinha Nazaré",
+      "category": [
+        "cozinhas"
+      ]
+    },
+    {
+      "image": "/content/projetos/climarsol-session-feb-7.jpg",
+      "title": "Cozinha S. Martinho do Porto",
+      "category": [
+        "cozinhas"
+      ]
+    },
+    {
+      "image": "/content/projetos/climarsol-session-feb-15.jpg",
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-session-feb-16.jpg"
+        }
+      ],
+      "title": "Cozinha S. Martinho do Porto",
+      "category": [
+        "cozinhas"
+      ]
+    },
+    {
+      "image": "/content/projetos/climarsol-volta-19jan.jpg",
+      "title": "Cozinha Alcobaça",
+      "category": [
+        "cozinhas",
+        "outros"
+      ],
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-volta-19jan-2-1-.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/climarsol-volta-19jan-v2.jpg"
+        }
+      ]
+    },
+    {
+      "image": "/content/projetos/mesa-móvel.jpg",
+      "title": "Escritório Famalicão da Nazaré",
+      "category": [
+        "outros"
+      ]
+    },
+    {
+      "image": "/content/projetos/cozinha-moradia-nazaré.jpg",
+      "title": "Cozinha Nazaré",
+      "category": [
+        "cozinhas"
+      ]
+    },
+    {
+      "image": "/content/projetos/1.jpg",
+      "category": [
+        "cozinhas",
+        "roupeiros",
+        "portas",
+        "outros"
+      ],
+      "title": "Edifício Multifamiliar Nazaré",
+      "gallery": [
+        {
+          "image": "/content/projetos/4.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/3.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/5.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/7.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/8.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/climarsol-set-29.jpg",
+          "type": "image"
+        },
+        {
+          "image": "/content/projetos/11.jpg",
+          "type": "image"
         }
       ]
     }
