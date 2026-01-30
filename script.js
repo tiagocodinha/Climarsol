@@ -224,12 +224,12 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 /* =========================
-   CONTACT FORM (VALIDATION + AJAX SUBMIT + TOAST)
+   CONTACT FORM (VALIDATION + AJAX SUBMIT + TOAST) PT/EN
    Requisitos no HTML:
-   - form id="contactForm"
+   - form id="contactForm" + novalidate
    - inputs: id="name" id="email" id="phone" id="message"
    - erros: id="nameError" "emailError" "phoneError" "messageError"
-   - botão: id="submitBtn" (opcional)
+   - botão: id="submitBtn"
    - toast: id="toast" (div)
 ========================= */
 (function () {
@@ -243,6 +243,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailEl = document.getElementById('email');
   const phoneEl = document.getElementById('phone');
   const messageEl = document.getElementById('message');
+
+  // idioma automático pelo URL
+  const lang = window.location.pathname.startsWith('/en') ? 'en' : 'pt';
+
+  const TEXT = {
+    pt: {
+      nameRequired: "Por favor, introduza o seu nome.",
+      emailRequired: "Por favor, introduza o seu email.",
+      emailInvalid: "Por favor, introduza um email válido.",
+      phoneInvalid: "Por favor, introduza um telefone válido (apenas números e + ( ) -).",
+      messageRequired: "Por favor, introduza uma mensagem.",
+      checkFields: "Verifique os campos assinalados.",
+      sending: "A enviar...",
+      sent: "Obrigado! A sua mensagem foi enviada.",
+      sendFail: "Não foi possível enviar. Tente novamente.",
+      networkFail: "Erro de ligação. Tente novamente."
+    },
+    en: {
+      nameRequired: "Please enter your name.",
+      emailRequired: "Please enter your email.",
+      emailInvalid: "Please enter a valid email address.",
+      phoneInvalid: "Please enter a valid phone number (numbers and + ( ) - only).",
+      messageRequired: "Please enter a message.",
+      checkFields: "Please check the highlighted fields.",
+      sending: "Sending...",
+      sent: "Thank you! Your message has been sent.",
+      sendFail: "Unable to send. Please try again.",
+      networkFail: "Connection error. Please try again."
+    }
+  };
+
+  const t = TEXT[lang];
 
   function setError(id, msg) {
     const el = document.getElementById(id);
@@ -264,24 +296,19 @@ document.addEventListener('DOMContentLoaded', () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
   }
 
-  // Permite números + espaços + + ( ) -
-  // Se quiseres "só números", eu digo-te já abaixo a troca.
   function isValidPhone(phone) {
     return /^[0-9\s()+-]{6,20}$/.test(phone);
   }
 
   // Limpador ao digitar (melhora UX)
-  if (emailEl) {
-    emailEl.addEventListener('input', () => setError("emailError", ""));
-  }
-  if (phoneEl) {
-    phoneEl.addEventListener('input', () => setError("phoneError", ""));
-  }
+  if (emailEl) emailEl.addEventListener('input', () => setError("emailError", ""));
+  if (phoneEl) phoneEl.addEventListener('input', () => setError("phoneError", ""));
+  if (nameEl) nameEl.addEventListener('input', () => setError("nameError", ""));
+  if (messageEl) messageEl.addEventListener('input', () => setError("messageError", ""));
 
   contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // limpar erros
     setError("nameError", "");
     setError("emailError", "");
     setError("phoneError", "");
@@ -295,38 +322,38 @@ document.addEventListener('DOMContentLoaded', () => {
     let ok = true;
 
     if (!name) {
-      setError("nameError", "Por favor, introduza o seu nome.");
+      setError("nameError", t.nameRequired);
       ok = false;
     }
 
     if (!email) {
-      setError("emailError", "Por favor, introduza o seu email.");
+      setError("emailError", t.emailRequired);
       ok = false;
     } else if (!isValidEmail(email)) {
-      setError("emailError", "Por favor, introduza um email válido.");
+      setError("emailError", t.emailInvalid);
       ok = false;
     }
 
     if (phone && !isValidPhone(phone)) {
-      setError("phoneError", "Por favor, introduza um telefone válido (apenas números e + ( ) -).");
+      setError("phoneError", t.phoneInvalid);
       ok = false;
     }
 
     if (!message) {
-      setError("messageError", "Por favor, introduza uma mensagem.");
+      setError("messageError", t.messageRequired);
       ok = false;
     }
 
     if (!ok) {
-      showToast("Verifique os campos assinalados.", "error");
+      showToast(t.checkFields, "error");
       return;
     }
 
-    // UI: bloquear botão
     const originalBtnText = submitBtn ? submitBtn.textContent : "";
+
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = "A enviar...";
+      submitBtn.textContent = t.sending;
     }
 
     try {
@@ -340,16 +367,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (res.ok) {
         contactForm.reset();
-        showToast("Obrigado! A sua mensagem foi enviada.", "success");
+        showToast(t.sent, "success");
       } else {
-        showToast("Não foi possível enviar. Tente novamente.", "error");
+        showToast(t.sendFail, "error");
       }
     } catch (err) {
-      showToast("Erro de ligação. Tente novamente.", "error");
+      showToast(t.networkFail, "error");
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText || "Enviar";
+        submitBtn.textContent = originalBtnText || (lang === 'en' ? "Send message" : "Enviar");
       }
     }
   });
