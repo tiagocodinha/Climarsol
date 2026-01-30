@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (res.ok) {
         contactForm.reset();
-        showToast("Obrigado! A sua mensagem foi enviada. Já foi enviado um email.", "success");
+        showToast("Obrigado! A sua mensagem foi enviada.", "success");
       } else {
         showToast("Não foi possível enviar. Tente novamente.", "error");
       }
