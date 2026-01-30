@@ -77,35 +77,58 @@
 
 
                 <div class="contact-form-wrapper">
-                    <form action="https://formsubmit.co/geral@stagelink.pt" method="POST" class="contact-form">
+                    <form id="contactForm" action="https://formsubmit.co/geral@stagelink.pt" method="POST" class="contact-form" novalidate>
 
-
-                        <input type="hidden" name="_captcha" value="false">
+                        <!-- FormSubmit options -->
                         <input type="hidden" name="_template" value="box">
-                        <input type="hidden" name="_next" value="https://climarsol.netlify.app/contactos/sucesso.html">
+                        <!-- NÃO uses _next porque não queremos redirect -->
+                        <!-- Mantém captcha ligado (remove se não quiseres) -->
+                        <!-- <input type="hidden" name="_captcha" value="true"> -->
 
                         <div class="form-group">
                             <label for="name">Nome *</label>
-                            <input type="text" name="name" required>
+                            <input id="name" type="text" name="name" required autocomplete="name">
+                            <small class="error-message" id="nameError"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" name="email" required>
+                            <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            required
+                            autocomplete="email"
+                            inputmode="email"
+                            >
+                            <small class="error-message" id="emailError"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Telefone</label>
-                            <input type="tel" name="phone">
+                            <input
+                            id="phone"
+                            type="tel"
+                            name="phone"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            placeholder="Ex: 912345678"
+                            pattern="^[0-9\s()+-]{6,20}$"
+                            >
+                            <small class="error-message" id="phoneError"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="message">Mensagem *</label>
-                            <textarea name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <small class="error-message" id="messageError"></small>
                         </div>
 
-                        <button type="submit" class="submit-button">Enviar</button>
-                    </form>
+                        <button type="submit" class="submit-button" id="submitBtn">Enviar</button>
+
+                        <!-- Toast -->
+                        <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+                        </form>
                 </div>
 
 

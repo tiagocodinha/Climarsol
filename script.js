@@ -77,68 +77,6 @@ if (navbar) {
 }
 
 /* =========================
-   CONTACT FORM VALIDATION (se existir)
-========================= */
-const contactForm = document.getElementById('contactForm');
-
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Clear previous error messages
-    document.querySelectorAll('.error-message').forEach(el => (el.textContent = ''));
-
-    const nameEl = document.getElementById('name');
-    const emailEl = document.getElementById('email');
-    const messageEl = document.getElementById('message');
-
-    const name = nameEl ? nameEl.value.trim() : '';
-    const email = emailEl ? emailEl.value.trim() : '';
-    const message = messageEl ? messageEl.value.trim() : '';
-
-    let isValid = true;
-
-    if (name === '') {
-      const nameError = document.getElementById('nameError');
-      if (nameError) nameError.textContent = 'Por favor, introduza o seu nome.';
-      isValid = false;
-    }
-
-    if (email === '') {
-      const emailError = document.getElementById('emailError');
-      if (emailError) emailError.textContent = 'Por favor, introduza o seu email.';
-      isValid = false;
-    } else if (!isValidEmail(email)) {
-      const emailError = document.getElementById('emailError');
-      if (emailError) emailError.textContent = 'Por favor, introduza um email válido.';
-      isValid = false;
-    }
-
-    if (message === '') {
-      const messageError = document.getElementById('messageError');
-      if (messageError) messageError.textContent = 'Por favor, introduza uma mensagem.';
-      isValid = false;
-    }
-
-    if (isValid) {
-      const successMessage = document.getElementById('successMessage');
-      if (successMessage) successMessage.classList.add('show');
-
-      contactForm.reset();
-
-      setTimeout(function () {
-        if (successMessage) successMessage.classList.remove('show');
-      }, 5000);
-    }
-  });
-}
-
-/* =========================
    CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
 ========================= */
 document.addEventListener('click', function (event) {
@@ -221,11 +159,13 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
 /* =========================
    CURRENT YEAR IN FOOTER
 ========================= */
-document.getElementById("year").textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
 
 /* =========================
    LANGUAGE SWITCH (PT <-> EN) + ACTIVE
@@ -246,7 +186,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
   const normalize = (p) => {
     if (!p) return '/';
-    // garante barra final para bater certo no mapa
     p = p.startsWith('/') ? p : '/' + p;
     if (!p.endsWith('/')) p += '/';
     return p;
@@ -281,5 +220,137 @@ document.getElementById("year").textContent = new Date().getFullYear();
         window.location.href = reverseRoutes[currentPath] || '/';
       }
     });
+  });
+})();
+
+/* =========================
+   CONTACT FORM (VALIDATION + AJAX SUBMIT + TOAST)
+   Requisitos no HTML:
+   - form id="contactForm"
+   - inputs: id="name" id="email" id="phone" id="message"
+   - erros: id="nameError" "emailError" "phoneError" "messageError"
+   - botão: id="submitBtn" (opcional)
+   - toast: id="toast" (div)
+========================= */
+(function () {
+  const contactForm = document.getElementById('contactForm');
+  if (!contactForm) return;
+
+  const submitBtn = document.getElementById('submitBtn');
+  const toast = document.getElementById('toast');
+
+  const nameEl = document.getElementById('name');
+  const emailEl = document.getElementById('email');
+  const phoneEl = document.getElementById('phone');
+  const messageEl = document.getElementById('message');
+
+  function setError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = msg || "";
+  }
+
+  function showToast(message, type = "success") {
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.classList.remove("success", "error", "show");
+    toast.classList.add(type);
+
+    requestAnimationFrame(() => toast.classList.add("show"));
+    setTimeout(() => toast.classList.remove("show"), 3500);
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+  }
+
+  // Permite números + espaços + + ( ) -
+  // Se quiseres "só números", eu digo-te já abaixo a troca.
+  function isValidPhone(phone) {
+    return /^[0-9\s()+-]{6,20}$/.test(phone);
+  }
+
+  // Limpador ao digitar (melhora UX)
+  if (emailEl) {
+    emailEl.addEventListener('input', () => setError("emailError", ""));
+  }
+  if (phoneEl) {
+    phoneEl.addEventListener('input', () => setError("phoneError", ""));
+  }
+
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // limpar erros
+    setError("nameError", "");
+    setError("emailError", "");
+    setError("phoneError", "");
+    setError("messageError", "");
+
+    const name = nameEl?.value.trim() || "";
+    const email = emailEl?.value.trim() || "";
+    const phone = phoneEl?.value.trim() || "";
+    const message = messageEl?.value.trim() || "";
+
+    let ok = true;
+
+    if (!name) {
+      setError("nameError", "Por favor, introduza o seu nome.");
+      ok = false;
+    }
+
+    if (!email) {
+      setError("emailError", "Por favor, introduza o seu email.");
+      ok = false;
+    } else if (!isValidEmail(email)) {
+      setError("emailError", "Por favor, introduza um email válido.");
+      ok = false;
+    }
+
+    if (phone && !isValidPhone(phone)) {
+      setError("phoneError", "Por favor, introduza um telefone válido (apenas números e + ( ) -).");
+      ok = false;
+    }
+
+    if (!message) {
+      setError("messageError", "Por favor, introduza uma mensagem.");
+      ok = false;
+    }
+
+    if (!ok) {
+      showToast("Verifique os campos assinalados.", "error");
+      return;
+    }
+
+    // UI: bloquear botão
+    const originalBtnText = submitBtn ? submitBtn.textContent : "";
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "A enviar...";
+    }
+
+    try {
+      const formData = new FormData(contactForm);
+
+      const res = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      });
+
+      if (res.ok) {
+        contactForm.reset();
+        showToast("Obrigado! A sua mensagem foi enviada. Já foi enviado um email.", "success");
+      } else {
+        showToast("Não foi possível enviar. Tente novamente.", "error");
+      }
+    } catch (err) {
+      showToast("Erro de ligação. Tente novamente.", "error");
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText || "Enviar";
+      }
+    }
   });
 })();
