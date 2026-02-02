@@ -1682,10 +1682,7 @@ body {
   max-height: 100%;
   object-fit: contain;
   display: block;
-
-  /* tudo a preto */
-  filter: brightness(0) saturate(100%);
-  opacity: 0.9;
+  filter: brightness(0) invert(1);  opacity: 0.9;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
