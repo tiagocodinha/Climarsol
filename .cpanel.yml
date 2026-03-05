@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/climarso/public_html/
+    - /bin/rsync -av --delete --exclude=".git" --exclude=".github" ./ $DEPLOYPATH
