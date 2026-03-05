@@ -167,21 +167,6 @@
           "type": "image"
         }
       ]
-    },
-    {
-      "title": "Moradias Alfeizerão - 12 Moradias",
-      "gallery": [
-        {
-          "type": "video",
-          "video_url": "https://climarsol.pt/content/projetos/moradias-alfeizerao-reels-v3.mp4",
-          "image": ""
-        }
-      ],
-      "image": "/content/projetos/1.png",
-      "category": [
-        "roupeiros",
-        "portas"
-      ]
     }
   ]
 }
