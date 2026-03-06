@@ -1,4 +1,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/climarso/public_html/
-    - /bin/rsync -av --delete --exclude=".git" --exclude=".github" --exclude=".cpanel.yml" ./ $DEPLOYPATH
+    - /bin/rsync -rv --delete --exclude=".git" --exclude=".github" --exclude=".cpanel.yml" ./ $DEPLOYPATH
+    - /bin/chmod 755 $DEPLOYPATH
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
