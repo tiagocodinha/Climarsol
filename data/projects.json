@@ -169,11 +169,18 @@
       ]
     },
     {
-      "title": "teste",
+      "title": "Moradias Foz do Arelho - 12 Moradias",
       "category": [
-        "cozinhas"
+        "roupeiros",
+        "portas"
       ],
-      "image": "/content/projetos/1-1-.jpg"
+      "image": "/content/projetos/capa-carrossel.jpg",
+      "gallery": [
+        {
+          "type": "image",
+          "image": "/content/projetos/capa-carrossel.jpg"
+        }
+      ]
     }
   ]
 }
