@@ -179,6 +179,26 @@
         {
           "type": "image",
           "image": "/content/projetos/foz-dentro-1.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/foz-dentro-2.jpg"
+        },
+        {
+          "image": "/content/projetos/foz-dentro-3.jpg",
+          "type": "image"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/foz-dentro-4.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/foz-dentro-5.jpg"
+        },
+        {
+          "type": "image",
+          "image": "/content/projetos/foz-fora-22222-2.jpg"
         }
       ]
     }
