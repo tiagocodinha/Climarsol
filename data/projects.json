@@ -167,6 +167,13 @@
           "type": "image"
         }
       ]
+    },
+    {
+      "title": "teste",
+      "category": [
+        "cozinhas"
+      ],
+      "image": "/content/projetos/1-1-.jpg"
     }
   ]
 }
