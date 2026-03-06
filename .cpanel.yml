@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/climarso/public_html
-    - /bin/cp -R * $DEPLOYPATH
+    - export DEPLOYPATH=/home/climarso/public_html/
+    - /bin/rsync -av --delete --exclude=".git" --exclude=".github" --exclude=".cpanel.yml" ./ $DEPLOYPATH
